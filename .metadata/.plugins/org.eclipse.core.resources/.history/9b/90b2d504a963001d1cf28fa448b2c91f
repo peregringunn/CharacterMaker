@@ -1,9 +1,0 @@
-package net.characterGen.spellMongo.Repository;
-
-import org.springframework.data.mongodb.repository.MongoRepository;
-
-import net.characterGen.spellMongo.Models.Spell;
-
-public interface SpellRepository extends MongoRepository<Spell, String> {
-
-}
