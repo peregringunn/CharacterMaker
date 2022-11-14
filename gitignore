@@ -27,7 +27,7 @@ hs_err_pid*
 *.iml
 
 #metadata
-/.metadata/
+.metadata/
 /.projects
 
 */target
