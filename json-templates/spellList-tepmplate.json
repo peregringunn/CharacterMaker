@@ -1,0 +1,12 @@
+[
+{
+    "id":"bard",
+    "className":"bard",
+    "spellListByLevel":[["Blade Ward","Dancing Lights"],["Animal Friendship","Bane"]]
+},
+{
+    "id":"cleric",
+    "className":"cleric",
+    "spellListByLevel":[["Guidence","Light"],["Bane","Bless"]]
+}
+]
