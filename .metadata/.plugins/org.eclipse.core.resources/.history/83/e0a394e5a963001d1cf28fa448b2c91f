@@ -1,0 +1,5 @@
+package net.characterGen.spellMongo;
+
+public class SpellService {
+
+}

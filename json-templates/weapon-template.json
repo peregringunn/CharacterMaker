@@ -1,0 +1,30 @@
+{
+  [
+    {
+    "name":"longsword",
+    "cost":0.0,
+    "weight":0.0,
+    "description":"",
+    "type":"",
+    "damage":"",
+    "properties":
+        [
+            "",
+            ""
+        ]
+    },
+    {
+    "name":"shortbow",
+    "cost":0.0,
+    "weight":0.0,
+    "description":"",
+    "type":"",
+    "damage":"",
+    "properties":
+        [
+            "",
+            ""
+        ]
+    }
+  ]
+}

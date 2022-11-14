@@ -1,0 +1,36 @@
+[
+{
+    "id":"Fireball"
+    "name":"Fireball",
+    "spellLevel":0,
+    "school":"",
+    "ritual":false,
+    "concentration":false,
+    "componets":"",
+    "costlyComponet":false,
+    "castingTime":"",
+    "duration":"",
+    "save":"",
+    "range":"",
+    "areaOfEffect":"",
+    "targets":"",
+    "description":""
+},
+{
+    "id":"Wish"
+    "name":"Wish",
+    "spellLevel":0,
+    "school":"",
+    "ritual":false,
+    "concentration":false,
+    "componets":"",
+    "costlyComponet":false,
+    "castingTime":"",
+    "duration":"",
+    "save":"",
+    "range":"",
+    "areaOfEffect":"",
+    "targets":"",
+    "description":""
+}
+]

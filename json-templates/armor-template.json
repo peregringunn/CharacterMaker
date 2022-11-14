@@ -1,0 +1,26 @@
+[
+    {
+    "name":"Leather",
+    "cost":0.0,
+    "weight":0.0,
+    "description":"",
+    "type":"",
+    "bonus":0,
+    "maxDex":0,
+    "minStr":0,
+    "stealthDisadvantage":false,
+    "magicBonus":0
+    },
+    {
+    "name":"Platemail",
+    "cost":0.0,
+    "weight":0.0,
+    "description":"",
+    "type":"",
+    "bonus":0,
+    "maxDex":0,
+    "minStr":0,
+    "stealthDisadvantage":false,
+    "magicBonus":0
+    }
+]

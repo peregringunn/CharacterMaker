@@ -1,0 +1,5 @@
+package net.characterGen.spellMongo.controller;
+
+public class Controller {
+
+}

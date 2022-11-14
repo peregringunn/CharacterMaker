@@ -1,0 +1,14 @@
+[
+    {
+    "name":"torch",
+    "cost":0.0,
+    "weight":0.0,
+    "description":""
+    },
+    {
+    "name":"bedroll",
+    "cost":0.0,
+    "weight":0.0,
+    "description":""
+    }
+]
