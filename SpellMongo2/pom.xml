@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>net.characterGen</groupId>
-	<artifactId>CharacterMongo</artifactId>
+	<artifactId>SpellMongo</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>SpellMongo</name>
 	<description>Demo project for Spring Boot</description>

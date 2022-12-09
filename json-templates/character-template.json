@@ -33,7 +33,7 @@
         "charisma":10
     },
     "proficencies":
-    {
+    {    
         "saveProficiencies":
         [
             "",
@@ -44,7 +44,7 @@
             "",
             ""
         ],
-        "toolProficencies":
+        "toolProficiencies":
         [
              "",
              ""
@@ -91,7 +91,7 @@
         "armorClass":10,
         "hitPointMax":8,
         "currentHitPoints":8,
-        "temoraryHitPoints":0
+        "temporaryHitPoints":0
     },
     "classStats":
     {
@@ -100,121 +100,7 @@
              "fighter":2,
              "rouge":1
         }],
-        "subClass":
-        [
-             "",
-             ""
-        ],
-        "spellsKnown":
-        [
-            "fierball",
-            "magic missile"
-        ],
-        "experience":25000 
-    }    
-  },
-    {
-    "id":"Towser",
-    "name":"Towser",
-    "playerName":"Stuart",
-    "demographics":
-    {
-        "background":"",
-        "race":"",
-        "subrace":"",
-        "alignment":"",
-        "age":0,
-        "height":"",
-        "weight":"",
-        "eyes":"",
-        "skin":"",
-        "hair":"",
-        "appearence":"",
-        "backstory":"",
-        "alliesAndOrganizations":
-        [{
-            "name1":"description1",
-            "name2":"description2"
-        }]
-    },
-    "statBlock":
-    {
-        "strength":10,
-        "dexterity":10,
-        "constitution":10,
-        "intelligence":10,
-        "wisdom":10,
-        "charisma":10
-    },
-    "proficencies":
-    {
-        "saveProficiencies":
-        [
-            "",
-            ""
-        ],
-        "skillProficiencies":
-        [
-            "",
-            ""
-        ],
-        "toolProficencies":
-        [
-             "",
-             ""
-        ],
-        "languages":
-        [
-            "common",
-            "elven"
-        ]
-    },
-    "gear":
-    {
-        "attacks":
-        [
-            {
-                "name":"Shortsword",
-                "attackBonus":"",
-                "damage":"",
-                "type":""
-            },
-            {
-                "name":"Longbow",
-                "attackBonus":"",
-                "damage":"",
-                "type":""
-            }
-        ],
-        "equipment":
-        [
-            "backpack",
-            "torch"
-        ],
-        "money":
-        {
-            "copper":0,
-            "silver":0,
-            "electrum":0,
-            "gold":0,
-            "platinum":0
-        }
-    },
-    "survival":
-    {
-        "armorClass":10,
-        "hitPointMax":8,
-        "currentHitPoints":8,
-        "temoraryHitPoints":0
-    },
-    "classStats":
-    {
-        "characterClasses":
-        [{
-             "fighter":2,
-             "rouge":1
-        }],
-        "subClass":
+        "subclass":
         [
              "",
              ""
