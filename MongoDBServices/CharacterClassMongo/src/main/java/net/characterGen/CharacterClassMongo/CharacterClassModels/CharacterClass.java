@@ -22,16 +22,19 @@ public class CharacterClass {
 	private List<ClassFeature> classFeatures;
 	private List<Archetype> archetypes;
 	private String archetypeMetaName;
+	private int spellCastingAbility;
 	private int cantripsKnown;
 	private int spellsKnown;
 	private int[][] spellSlotsPerLevel;
 	public CharacterClass() {
 		super();
 	}
+
 	public CharacterClass(String id, String name, int hitDie, List<String> weaponProficiencies,
 			List<String> armorProficiencies, List<String> toolProficiencies, List<String> skillProficencies,
 			List<String> savingThrowProficiencies, List<ClassFeature> classFeatures, List<Archetype> archetypes,
-			String archetypeMetaName, int cantripsKnown, int spellsKnown, int[][] spellSlotsPerLevel) {
+			String archetypeMetaName, int spellCastingAbility, int cantripsKnown, int spellsKnown,
+			int[][] spellSlotsPerLevel) {
 		super();
 		this.id = id;
 		this.name = name;
@@ -44,10 +47,12 @@ public class CharacterClass {
 		this.classFeatures = classFeatures;
 		this.archetypes = archetypes;
 		this.archetypeMetaName = archetypeMetaName;
+		this.setSpellCastingAbility(spellCastingAbility);
 		this.cantripsKnown = cantripsKnown;
 		this.spellsKnown = spellsKnown;
 		this.spellSlotsPerLevel = spellSlotsPerLevel;
 	}
+
 	public String getId() {
 		return id;
 	}
@@ -138,7 +143,8 @@ public class CharacterClass {
 				+ weaponProficiencies + ",\n armorProficiencies=" + armorProficiencies + ",\n toolProficiencies="
 				+ toolProficiencies + ",\n skillProficencies=" + skillProficencies + ",\n savingThrowProficiencies="
 				+ savingThrowProficiencies + ",\n classFeatures=" + classFeatures + ",\n archetypes=" + archetypes
-				+ ",\n archetypeMetaName=" + archetypeMetaName + ",\n cantripsKnown=" + cantripsKnown + ",\n spellsKnown="
+				+ ",\n archetypeMetaName=" + archetypeMetaName + "\n Spell Casting Abillity" + spellCastingAbility
+				+ ",\n cantripsKnown=" + cantripsKnown + ",\n spellsKnown="
 				+ spellsKnown + ",\n spellSlotsPerLevel=\n" + spellSlotsToString() + "]";
 	}
 	
@@ -148,5 +154,13 @@ public class CharacterClass {
 			str = str + Arrays.toString(spellSlotsPerLevel[i]) + "\n";
 		}
 		return str;
+	}
+
+	public int getSpellCastingAbility() {
+		return spellCastingAbility;
+	}
+
+	public void setSpellCastingAbility(int spellCastingAbility) {
+		this.spellCastingAbility = spellCastingAbility;
 	}
 }

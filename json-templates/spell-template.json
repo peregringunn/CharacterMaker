@@ -1,6 +1,6 @@
 [
 {
-    "id":"Fireball"
+    "id":"Fireball",
     "name":"Fireball",
     "spellLevel":0,
     "school":"",
@@ -17,7 +17,7 @@
     "description":""
 },
 {
-    "id":"Wish"
+    "id":"Wish",
     "name":"Wish",
     "spellLevel":0,
     "school":"",
