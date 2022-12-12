@@ -20,7 +20,7 @@ import net.characterGen.EquipmentMongo.Service.EquipmentService;
 import net.characterGen.EquipmentMongo.Service.WeaponService;
 
 @RestController
-@RequestMapping("/")
+@RequestMapping("/equipment/")
 public class Controller {
 	@Autowired
 	ArmorService armorService;
@@ -42,15 +42,15 @@ public class Controller {
 		armorService.addArmor(Armor);
 		return ResponseEntity.ok(HttpStatus.CREATED);
 	}
-	@GetMapping("/equipment")
+	@GetMapping("/")
 	public ResponseEntity<List<Equipment>> getAllEquipment(){
 		return ResponseEntity.ok(equipmentService.getAllEquipment());
 	}
-	@GetMapping("/equipment/{name}")
+	@GetMapping("/{name}")
 	public ResponseEntity<Equipment> getEquipmentByName(@PathVariable String name){
 		return ResponseEntity.ok(equipmentService.getEquipmentByname(name));
 	}
-	@PostMapping("/equipment")
+	@PostMapping("/")
 	public ResponseEntity<HttpStatus> addEquipment(@RequestBody String equipment){
 		equipmentService.addEquipment(equipment);
 		return ResponseEntity.ok(HttpStatus.CREATED);

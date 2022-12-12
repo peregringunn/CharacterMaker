@@ -14,6 +14,7 @@ import net.characterGen.characterMongo.Repository.CharacterRepository;
 
 
 
+
 @Service
 @EnableMongoRepositories(basePackageClasses = CharacterRepository.class)
 public class CharacterService {

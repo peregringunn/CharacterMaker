@@ -1,0 +1,48 @@
+server:
+  port: 8080
+  
+logging.pattern.console: "%clr(%d{HH:mm:ss.SSS}){blue} %clr(---){faint} %clr([%15.15t]){yellow} %clr(:){red} %clr(%m){faint}%n"
+
+spring:
+  application:
+    name: mongo-gateway
+  cloud:
+    gateway:
+      routes:
+        - id: background
+          uri: ${BACKGROUND_URI}
+          predicates:
+          - Path=/background/
+        - id: character-class
+          uri: ${CHARACTER_CLASS_URI}
+          predicates:
+          - Path=/class/**
+        - id: character
+          uri: ${CHARACTER_URI}
+          predicates:
+          - Path=/character/**
+        - id: spell-list
+          uri: ${SPELL_LIST_URI}
+          predicates:
+          - Path=/spellList/**
+        - id: equipment
+          uri: ${EQUIPMENT_URI}
+          predicates:
+          - Path=/equipment/**
+        - id: race
+          uri: ${RACE_URI}
+          predicates:
+          - Path=/race/**
+        - id: spell
+          uri: ${SPELL_URI}
+          predicates:
+          - Path=/spell/**
+
+          
+
+logging:
+  level:
+    org:
+      springframework:
+        cloud:
+          gateway: DEBUG

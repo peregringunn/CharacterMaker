@@ -1,13 +1,11 @@
-package net.characterGen.BackgroundMongo.Models;
+package net.characterGen.backgroundinput.models;
 
-import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
 public class Feature {
 	private String name;
 	private String description;
 	
-	public Feature(String id, String name, String description) {
+	public Feature(String name, String description) {
 		this.name = name;
 		this.description = description;
 	}

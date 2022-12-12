@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Background entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Form</h1>
+    <form action="#" th:action="@{/background}" th:object="${background}" method="post">
+    	<p>Name: <input type="text" th:field="*{name}" /></p>
+        <p>Proficiencies: <input type="text" th:field="*{proficiencies}" /></p>
+        <p>Languages: <input type="text" th:field="*{languages}" /></p>
+        <p>Equipment: <input type="text" th:field="*{equipment}" /></p>
+        <p>Feature: <input type="text" th:field="*{feature}" /></p>
+        <p>Characteristics: <input type="text" th:field="*{characteristics}" /></p>
+        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    </form>
+</body>
+</html>

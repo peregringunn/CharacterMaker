@@ -10,11 +10,11 @@ public class Proficiencies {
 	public Proficiencies() {
 		super();
 	}
-	public Proficiencies(List<String> saves, List<String> skills, List<String> tools, List<String> languages) {
+	public Proficiencies(List<String> saveProficiencies, List<String> skillProficiencies, List<String> toolProficiencies, List<String> languages) {
 		super();
-		this.saveProficiencies = saves;
-		this.skillProficiencies = skills;
-		this.toolProficiencies = tools;
+		this.saveProficiencies = saveProficiencies;
+		this.skillProficiencies = skillProficiencies;
+		this.toolProficiencies = toolProficiencies;
 		this.languages = languages;
 	}
 	public List<String> getSaveProficencies() {
