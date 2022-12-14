@@ -7,10 +7,10 @@ public class Background {
 	private String name;
 	private List<String> proficiencies;
 	private List<String> languages;
-	private List<Equipment> equipment;
+	private List<String> equipment;
 	private Feature feature;
 	private List<Charateristics> characteristics;
-	public Background(String name, List<String> proficiencies, List<String> languages, List<Equipment> equipment,
+	public Background(String name, List<String> proficiencies, List<String> languages, List<String> equipment,
 			Feature feature, List<Charateristics> characteristics) {
 		super();
 		this.name = name;
@@ -32,7 +32,7 @@ public class Background {
 	public List<String> getLanguages() {
 		return languages;
 	}
-	public List<Equipment> getEquipment() {
+	public List<String> getEquipment() {
 		return equipment;
 	}
 	public Feature getFeature() {
@@ -40,6 +40,25 @@ public class Background {
 	}
 	public List<Charateristics> getCharacteristics() {
 		return characteristics;
+	}
+	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public void setProficiencies(List<String> proficiencies) {
+		this.proficiencies = proficiencies;
+	}
+	public void setLanguages(List<String> languages) {
+		this.languages = languages;
+	}
+	public void setEquipment(List<String> equipment) {
+		this.equipment = equipment;
+	}
+	public void setFeature(Feature feature) {
+		this.feature = feature;
+	}
+	public void setCharacteristics(List<Charateristics> list) {
+		this.characteristics = list;
 	}
 	@Override
 	public String toString() {

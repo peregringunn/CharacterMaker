@@ -11,10 +11,10 @@ public class Background {
 	private String name;
 	private List<String> proficiencies;
 	private List<String> languages;
-	private List<Equipment> equipment;
+	private List<String> equipment;
 	private Feature feature;
 	private List<Charateristics> characteristics;
-	public Background(String name, List<String> proficiencies, List<String> languages, List<Equipment> equipment,
+	public Background(String name, List<String> proficiencies, List<String> languages, List<String> equipment,
 			Feature feature, List<Charateristics> characteristics) {
 		super();
 		this.name = name;
@@ -36,7 +36,7 @@ public class Background {
 	public List<String> getLanguages() {
 		return languages;
 	}
-	public List<Equipment> getEquipment() {
+	public List<String> getEquipment() {
 		return equipment;
 	}
 	public Feature getFeature() {

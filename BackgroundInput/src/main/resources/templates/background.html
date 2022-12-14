@@ -7,13 +7,31 @@
 <body>
 	<h1>Form</h1>
     <form action="#" th:action="@{/background}" th:object="${background}" method="post">
-    	<p>Name: <input type="text" th:field="*{name}" /></p>
-        <p>Proficiencies: <input type="text" th:field="*{proficiencies}" /></p>
-        <p>Languages: <input type="text" th:field="*{languages}" /></p>
-        <p>Equipment: <input type="text" th:field="*{equipment}" /></p>
-        <p>Feature: <input type="text" th:field="*{feature}" /></p>
-        <p>Characteristics: <input type="text" th:field="*{characteristics}" /></p>
-        <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
+    	<div>Name: <input type="text" th:field="*{name}" /></div>
+        <div>Proficiencies: <input type="text" th:field="*{proficiencies}" /></div>
+        <div>Languages: <input type="text" th:field="*{languages}" /></div>
+        <div>Equipment: <input type="text" th:field="*{equipment}" /></div>
+        <!--div>Feature: <input type="text" th:field="*{feature}" /></div-->
+        
+        <div>
+        	Feature:
+        	<div>Feature name: <input type="text" th:field="*{feature.name}" /></div>
+        	<div>Feature description: <input type="text" th:field="*{feature.description}" /></div>
+        </div>
+        <!--div>
+        	Characteristic:
+        	<div>Characteristic name: <input type="text" th:field="*{characteristics.name}" /></div>
+        	<div>Characteristic description: <input type="text" th:field="*{characteristics.decription}" /></div>
+        	<div>Characteristic type: <input type="text" th:field="*{characteristics.type}" /></div>
+        </div-->
+        
+        <div>Characteristics: <input type="text" th:field="*{characteristics}" /></div>
+       
+        
+        <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
     </form>
+    
+
+    
 </body>
 </html>
