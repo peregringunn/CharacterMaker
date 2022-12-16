@@ -1,27 +1,10 @@
 package net.characterGen.backgroundinput.models;
 
+import lombok.Data;
 
-
-
-public class Charateristics extends Feature{
+@Data
+public class Charateristics{
+	private String name;
+	private String Description;
 	private String type;
-
-	public Charateristics() {
-		super();
-	}
-
-	public Charateristics(String name, String description, String type) {
-		super(name, description);
-		this.type = type;
-	}
-
-	public String getType() {
-		return type;
-	}
-
-	@Override
-	public String toString() {
-		return super.toString() + "Charateristics [type=" + type + "]";
-	}
-	
 }

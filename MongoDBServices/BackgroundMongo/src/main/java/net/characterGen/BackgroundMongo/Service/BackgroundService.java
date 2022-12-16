@@ -34,6 +34,7 @@ public class BackgroundService {
 		try {
 			Background[] backgroundArr = objectMapper.readValue(backgrounds, Background[].class);
 			for (int i=0;i<backgroundArr.length;i++) {
+				System.out.println(backgroundArr[i]);
 				repo.save(backgroundArr[i]);
 			}
 		} catch (JsonProcessingException e) {

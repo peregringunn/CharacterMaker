@@ -18,4 +18,10 @@ public class Charateristics extends Feature{
 	public String getType() {
 		return type;
 	}
+
+	@Override
+	public String toString() {
+		return super.toString() + "Charateristics [type=" + type + "]";
+	}
+	
 }

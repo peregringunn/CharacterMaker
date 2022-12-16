@@ -45,5 +45,10 @@ public class Background {
 	public List<Charateristics> getCharacteristics() {
 		return characteristics;
 	}
+	@Override
+	public String toString() {
+		return "Background [name=" + name + ", proficiencies=" + proficiencies + ", languages=" + languages
+				+ ", equipment=" + equipment + ", feature=" + feature + ", characteristics=" + characteristics + "]";
+	}
 	
 }

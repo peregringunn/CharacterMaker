@@ -33,4 +33,10 @@ public class Feature {
 		return description;
 	}
 
+
+	@Override
+	public String toString() {
+		return "Feature [name=" + name + ", description=" + description + "]";
+	}
+
 }

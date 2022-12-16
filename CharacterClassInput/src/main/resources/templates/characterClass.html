@@ -1,0 +1,219 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Charater Class entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Input a new character class</h1>
+	<form action="#" th:action="@{/characterClass}" th:object="${characterClass}" method="post" enctype="multipart/form-data">
+		<div>Name: <input type="text" th:field="*{name}" /></div>
+		<div>Hit Die: <input type="number" th:field="*{hitDie}" /></div>
+		<div class "form-group">
+        	<label for="weaponProficiencies">Weapon Proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addWeaponProficiency" id="addWeaponProficiency">
+        		Add Proficiency
+        	</button>
+        	<div th:if="*{weaponProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Weapon Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{weaponProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{weaponProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeWeaponProficiency" id="removeWeaponProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        	</table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="armorProficiencies">Armor Proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addArmorProficiency" id="addArmorProficiency">
+        		Add Armor Proficiency
+        	</button>
+        	<div th:if="*{armorProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Armor Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{armorProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{armorProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeArmorProficiency" id="removeArmorProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        	</table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="toolProficiencies">Tool Proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addToolProficiency" id="addToolProficiency">
+        		Add Tool Proficiency
+        	</button>
+        	<div th:if="*{toolProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Weapon Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{toolProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{toolProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeToolProficiency" id="removeToolProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        	</table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="skillProficiencies">Skill Proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSkillProficiency" id="addSkillProficiency">
+        		Add Proficiency
+        	</button>
+        	<div th:if="*{skillProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Skill Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{skillProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{skillProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSkillProficiency" id="removeSkillProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        	</table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="savingThrowProficiencies">Saving Throw Proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSavingThrowProficiency" id="addSavingThrowProficiency">
+        		Add Saving Throw Proficiency
+        	</button>
+        	<div th:if="*{savingThrowProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Saving Throw Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{savingThrowProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{savingThrowProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSavingThrowProficiency" id="removeSavingThrowProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        	</table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="classFeatures">Class Features</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addClassFeature" id="addClassFeature">
+        		Add Class Feature
+        	</button>
+        	<div th:if="*{classFeatures}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Name</th>
+	                <th>Level</th>
+	                <th>Description</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{classFeatures}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{classFeatures[__${stat.index}__].name}"></td>
+	                <td><input type="number" class="form-control" th:field="*{classFeatures[__${stat.index}__].level}"></td>
+	                <td><input type="text" class="form-control" th:field="*{classFeatures[__${stat.index}__].description}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeClassFeature" id="removeClassFeature" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        	</table>
+        	</div>
+        </div>
+		<div class "form-group">
+        	<label for="archetypes">Archetypes</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addArchetype" id="addArchetype">
+        		Add Archetype
+        	</button>
+        	<div th:if="*{archetypes}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Name</th>
+	                <th>Description</th>
+	                <th>Features</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat1: *{archetypes}">
+	                <td th:text="${stat1.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{archetypes[__${stat1.index}__].name}"></td>
+	                <td><input type="text" class="form-control" th:field="*{archetypes[__${stat1.index}__].description}"></td>
+	                <div class "form-group">
+			        	<label for="features">Archetype Features</label>
+			        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addArchetypeFeature" id="addArchetypeFeature" th:value="${stat1.index}">
+			        		Add Archetype Feature
+			        	</button>
+			        	<div th:if="*{archetypes[__${stat1.index}__].features}">
+			 				<table cellpadding="5px 15px;">
+				            <thead>
+				            <tr>
+				                <th>Index</th>
+				                <th>Name</th>
+				                <th>Level</th>
+				                <th>Description</th>
+				                <th></th>
+				            </tr>
+				            </thead>
+				            <tbody>
+				            <tr th:each="eval, stat2: *{archetypes[__${stat1.index}__].features}">
+				                <td th:text="${stat2.count}">1</td>
+				                <td><input type="text" class="form-control" th:field="*{archetypes[__${stat1.index}__].features[__${stat2.index}__].name}"></td>
+				                <td><input type="number" class="form-control" th:field="*{archetypes[__${stat1.index}__].features[__${stat2.index}__].level}"></td>
+				                <td><input type="text" class="form-control" th:field="*{archetypes[__${stat1.index}__].features[__${stat2.index}__].description}"></td>
+				                <td><input type="hidden" name="archetypeIndex" value="${stat1.index}"></td>
+				                <td><button class="btn btn-info" type="submit" name="removeArchetypeFeature" id="removeArchetypeFeature" th:value="${stat2.index}">Remove</button></td>
+				            </tr>
+				            </tbody>
+				        </table>
+			        	</div>
+			        </div>
+	                <td><button class="btn btn-info" type="submit" name="removeArchetype" id="removeArchetype" th:value="${stat1.index}" >Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        	</div>
+        </div>
+        <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>        
+	</form>
+</body>
+</html>

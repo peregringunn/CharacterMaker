@@ -27,12 +27,7 @@ public class BackgroundService {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 
-	public void background(Background background) {
-		this.addBackground(background);
-		
-	}
-
-	private void addBackground(Background bg) {
+	public void addBackground(Background bg) {
 		String url = System.getenv("GATEWAY_URI") + "/background/";
 		HttpHeaders headers = new HttpHeaders();
 		headers.setContentType(MediaType.APPLICATION_JSON);

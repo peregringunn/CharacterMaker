@@ -11,13 +11,12 @@ public class CharacterClass {
 	
 	@Id
 	private String id;
-	
 	private String name;
 	private int hitDie;
 	private List<String> weaponProficiencies;
 	private List<String> armorProficiencies;
 	private List<String> toolProficiencies;
-	private List<String> skillProficencies;
+	private List<String> skillProficiencies;
 	private List<String> savingThrowProficiencies;
 	private List<ClassFeature> classFeatures;
 	private List<Archetype> archetypes;
@@ -42,7 +41,7 @@ public class CharacterClass {
 		this.weaponProficiencies = weaponProficiencies;
 		this.armorProficiencies = armorProficiencies;
 		this.toolProficiencies = toolProficiencies;
-		this.skillProficencies = skillProficencies;
+		this.skillProficiencies = skillProficencies;
 		this.savingThrowProficiencies = savingThrowProficiencies;
 		this.classFeatures = classFeatures;
 		this.archetypes = archetypes;
@@ -71,8 +70,8 @@ public class CharacterClass {
 	public List<String> getToolProficiencies() {
 		return toolProficiencies;
 	}
-	public List<String> getSkillProficencies() {
-		return skillProficencies;
+	public List<String> getSkillProficiencies() {
+		return skillProficiencies;
 	}
 	public List<String> getSavingThrowProficiencies() {
 		return savingThrowProficiencies;
@@ -114,7 +113,7 @@ public class CharacterClass {
 		this.toolProficiencies = toolProficiencies;
 	}
 	public void setSkillProficencies(List<String> skillProficencies) {
-		this.skillProficencies = skillProficencies;
+		this.skillProficiencies = skillProficencies;
 	}
 	public void setSavingThrowProficiencies(List<String> savingThrowProficiencies) {
 		this.savingThrowProficiencies = savingThrowProficiencies;
@@ -141,7 +140,7 @@ public class CharacterClass {
 	public String toString() {
 		return "CharacterClass [id=" + id + ",\n name=" + name + ",\n hitDie=" + hitDie + ",\n weaponProficiencies="
 				+ weaponProficiencies + ",\n armorProficiencies=" + armorProficiencies + ",\n toolProficiencies="
-				+ toolProficiencies + ",\n skillProficencies=" + skillProficencies + ",\n savingThrowProficiencies="
+				+ toolProficiencies + ",\n skillProficencies=" + skillProficiencies + ",\n savingThrowProficiencies="
 				+ savingThrowProficiencies + ",\n classFeatures=" + classFeatures + ",\n archetypes=" + archetypes
 				+ ",\n archetypeMetaName=" + archetypeMetaName + "\n Spell Casting Abillity" + spellCastingAbility
 				+ ",\n cantripsKnown=" + cantripsKnown + ",\n spellsKnown="

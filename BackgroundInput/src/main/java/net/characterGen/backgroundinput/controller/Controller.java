@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import jakarta.servlet.http.HttpServletRequest;
 import net.characterGen.backgroundinput.models.Background;
 import net.characterGen.backgroundinput.models.Charateristics;
-import net.characterGen.backgroundinput.models.FormBackground;
 import net.characterGen.backgroundinput.service.BackgroundService;
 
 @org.springframework.stereotype.Controller
@@ -26,14 +25,14 @@ public class Controller {
 
 	@GetMapping("/background")
 	public String backgroundForm(Model model){
-		model.addAttribute("background", new FormBackground());
+		model.addAttribute("background", new Background());
 		return "background";
 	}
 	
 	@PostMapping("/background")
 	public String backgroundInput(@ModelAttribute Background background, Model model){
 		model.addAttribute("background", background);
-		service.background(background);
+		service.addBackground(background);
 		return "result";		
 	}
 	
