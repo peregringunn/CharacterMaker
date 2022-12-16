@@ -1,7 +1,6 @@
 package net.characterGen.backgroundinput.service;
 
 
-import java.util.Arrays;
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,8 +14,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
 import net.characterGen.backgroundinput.models.Background;
-import net.characterGen.backgroundinput.models.Charateristics;
-import net.characterGen.backgroundinput.models.FormBackground;
 
 @Service
 public class BackgroundService {
@@ -30,20 +27,8 @@ public class BackgroundService {
 		this.restTemplate = restTemplateBuilder.build();
 	}
 
-	public void background(FormBackground background) {
-		final ObjectMapper mapper = new ObjectMapper();
-		Background bg = new Background();
-		try {
-			bg.setName(background.getName());
-			bg.setProficiencies(Arrays.asList(mapper.readValue(background.getProficiencies(), String[].class)));
-			bg.setLanguages(Arrays.asList(mapper.readValue(background.getLanguages(), String[].class)));
-			bg.setEquipment(Arrays.asList(mapper.readValue(background.getEquipment(), String[].class)));
-			bg.setFeature(background.getFeature());
-			bg.setCharacteristics(Arrays.asList(mapper.readValue(background.getCharacteristics(), Charateristics[].class)));
-			this.addBackground(bg);
-		} catch (JsonProcessingException e) {
-			e.printStackTrace();
-		}
+	public void background(Background background) {
+		this.addBackground(background);
 		
 	}
 
