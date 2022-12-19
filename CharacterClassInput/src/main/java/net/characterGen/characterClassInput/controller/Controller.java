@@ -185,7 +185,7 @@ public class Controller {
 				archetypeFeaturesList.add(new ClassFeature());
 				characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("addArchetypeFeature"))).setFeatures(archetypeFeaturesList);
 			} else {
-				characterClass.getArchetypes().add(new Archetype());
+				characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("addArchetypeFeature"))).getFeatures().add(new ClassFeature());
 			}
 		}
 		return "characterClass";

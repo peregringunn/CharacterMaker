@@ -17,8 +17,10 @@ public class CharacterClass {
 	private List<ClassFeature> classFeatures;
 	private List<Archetype> archetypes;
 	private String archetypeMetaName;
-	private int spellCastingAbility;
+	private String spellCastingAbility;
 	private int cantripsKnown;
-	private int spellsKnown;
-	private int[][] spellSlotsPerLevel;
+	private List<Integer> spellsKnown;
+	private List<List<Integer>> spellSlotsPerLevel;
+	
+	
 }
