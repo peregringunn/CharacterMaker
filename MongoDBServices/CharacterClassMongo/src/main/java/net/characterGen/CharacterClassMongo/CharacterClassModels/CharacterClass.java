@@ -12,7 +12,6 @@ import lombok.Data;
 public class CharacterClass {
 	
 	@Id
-	private String id;
 	private String name;
 	private int hitDie;
 	private List<String> weaponProficiencies;
@@ -25,6 +24,6 @@ public class CharacterClass {
 	private String archetypeMetaName;
 	private String spellCastingAbility;
 	private int cantripsKnown;
-	private int[] spellsKnown;
-	private int[][] spellSlotsPerLevel;
+	private List<Integer> spellsKnown;
+	private List<List<Integer>> spellSlotsPerLevel;
 }

@@ -196,4 +196,56 @@ public class Controller {
 		characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("archetypeIndex"))).getFeatures().remove(Integer.parseInt(request.getParameter("removeArchetypeFeature")));
 		return "characterClass";
 	}
+	
+	@PostMapping(value = "/characterClass", params = {"addSpellsKnown"})
+	public String addSpellsKnown(CharacterClass characterClass, BindingResult bindingResult) {
+		if(null!=characterClass) {
+			if(null==characterClass.getSpellsKnown()) {
+				List<Integer> spellsKnownList = new ArrayList<>();
+				for (int i = 0; i < 20; i++) {
+					spellsKnownList.add(0);
+				}
+				characterClass.setSpellsKnown(spellsKnownList);
+			}
+		}
+		return "characterClass";
+	}
+	
+	@PostMapping(value = "/characterClass", params = {"removeSpellsKnown"})
+	public String removeSpellsKnown (CharacterClass characterClass, BindingResult bindingResult) {
+		if (null!=characterClass.getSpellsKnown()) {
+			for (int i = 20; i > 0; i--) {
+				characterClass.getSpellsKnown().remove(i-1);
+			} 
+		}
+		return "characterClass";
+	}
+	
+	@PostMapping(value = "/characterClass", params = {"addSpellSlotsPerLevel"})
+	public String addSpellSlotsPerLeve(CharacterClass characterClass, BindingResult bindingResult) {
+		if(null!=characterClass) {
+			if(null==characterClass.getSpellSlotsPerLevel()) {
+				List<List<Integer>> spellSlotsList = new ArrayList<>();
+				for (int i = 0; i < 20; i++) {
+					List<Integer> levelList = new ArrayList<>();
+					for(int j=0; j < 9; j++) {
+						levelList.add(0);
+					}
+					spellSlotsList.add(levelList);
+				}
+				characterClass.setSpellSlotsPerLevel(spellSlotsList);
+			}
+		}
+		return "characterClass";
+	}
+	
+	@PostMapping(value = "/characterClass", params = {"removeSpellSlotsPerLevel"})
+	public String removeClassFeature (CharacterClass characterClass, BindingResult bindingResult) {
+		if (null!=characterClass.getSpellSlotsPerLevel()) {
+			for (int i = 20; i > 0; i--) {
+				characterClass.getSpellSlotsPerLevel().remove(i-1);
+			} 
+		}
+		return "characterClass";
+	}
 }

@@ -1,0 +1,155 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Character entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Input a new character</h1>
+    <form action="#" th:action="@{/playerCharacter}" th:object="${playerCharacter}" method="post" enctype="multipart/form-data">
+    	<div>Name: <input type="text" th:field="*{name}" /></div>
+    	<div>Player Name: <input type="text" th:field="*{playerName}" /></div>
+    	<div>Background: <input type="text" th:field="*{demographics.background}" /></div>
+    	<div>Race: <input type="text" th:field="*{demographics.race}" /></div>
+    	<div>Subrace: <input type="text" th:field="*{demographics.subrace}" /></div>
+    	<div>Alignment: <input type="text" th:field="*{demographics.alignment}" /></div>
+    	<div>Age: <input type="number" th:field="*{demographics.age}" /></div>
+    	<div>Height: <input type="text" th:field="*{demographics.height}" /></div>
+        <div>Weight: <input type="text" th:field="*{demographics.weight}" /></div>
+        <div>Eyes: <input type="text" th:field="*{demographics.eyes}" /></div>
+        <div>Skin: <input type="text" th:field="*{demographics.skin}" /></div>
+        <div>Hair: <input type="text" th:field="*{demographics.hair}" /></div>
+        <div>Appearence: <input type="text" th:field="*{demographics.appearence}" /></div>
+        <div>Backstory: <input type="text" th:field="*{demographics.backstory}" /></div>
+        <div class "form-group">
+        	<label for="alliesAndOrganizations">Allies and Organizations</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addAlly" id="addAlly">
+        		Add Ally/Organazation
+        	</button>
+        	<div th:if="*{demographics.alliesAndOrganizations}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Name</th>
+	                <th>Description</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{demographics.alliesAndOrganizations}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{demographics.alliesAndOrganizations[__${stat.index}__].name}"></td>
+	                <td><input type="text" class="form-control" th:field="*{demographics.alliesAndOrganizations[__${stat.index}__].description}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeAlly" id="removeAlly" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        	</div>
+        </div>
+        <div>Strength: <input type="number" th:field="*{statBlock.strength}" /></div>
+        <div>Dexterity: <input type="number" th:field="*{statBlock.dexterity}" /></div>
+        <div>Constitution: <input type="number" th:field="*{statBlock.constitution}" /></div>
+        <div>Intelligence: <input type="number" th:field="*{statBlock.intelligence}" /></div>
+        <div>Wisdom: <input type="number" th:field="*{statBlock.wisdom}" /></div>
+        <div>Charisma: <input type="number" th:field="*{statBlock.charisma}" /></div>
+        <div class "form-group">
+        	<label for="saveProficiencies">Save proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSaveProficiency" id="addSaveProficiency">
+        		Add Save Proficiency
+        	</button>     
+        	<div th:if="*{proficiencies.saveProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Save Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{proficiencies.saveProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{proficiencies.saveProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSaveProficiency" id="removeSaveProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="skillProficiencies">Skill proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSkillProficiency" id="addSkillProficiency">
+        		Add Skill Proficiency
+        	</button>
+        	<div th:if="*{proficiencies.skillProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Skill Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{proficiencies.skillProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{proficiencies.skillProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSkillProficiency" id="removeSkillProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="toolProficiencies">Tool proficiencies</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addToolProficiency" id="addToolProficiency">
+        		Add Tool Proficiency
+        	</button>
+        	<div th:if="*{proficiencies.toolProficiencies}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Tool Proficiency</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{proficiencies.toolProficiencies}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{proficiencies.toolProficiencies[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeToolProficiency" id="removeToolProficiency" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        	</div>
+        </div>
+        <div class "form-group">
+        	<label for="languages">Languages</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addLanguage" id="addLanguage">
+        		Add Language
+        	</button>
+        	<div th:if="*{proficiencies.languages}">
+ 				<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Language</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{proficiencies.languages}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{proficiencies.languages[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeLanguage" id="removeLanguage" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        	</div>
+        </div>
+        <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+    </form>
+</body>
+</html>

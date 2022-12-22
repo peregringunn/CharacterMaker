@@ -6,12 +6,20 @@
 </head>
 <body>
 	<h1>Result</h1>
-    <!--p th:text="'name: ' + ${background.name}" />
-    <p th:text="'proficiencies: ' + ${background.proficiencies}" />
-    <p th:text="'languages: ' + ${background.languages}" />
-    <p th:text="'equipment: ' + ${background.equipment}" />
-    <p th:text="'feature: ' + ${background.feature}" />
-    <p th:text="'characteristics: ' + ${background.characteristics}" />
-    <a href="/background">Submit another message</a-->
+    <div th:text="'name: ' + ${characterClass.name}" />
+    <div th:text="'hit die: ' + ${characterClass.hitDie}" />
+    <div th:text="'weapon proficiencies: ' + ${characterClass.weaponProficiencies}" />
+    <div th:text="'armor proficiencies: ' + ${characterClass.armorProficiencies}" />
+    <div th:text="'tool proficiencies: ' + ${characterClass.toolProficiencies}" />
+    <div th:text="'skill proficiencies: ' + ${characterClass.skillProficiencies}" />
+    <div th:text="'saving throw proficiencies: ' + ${characterClass.savingThrowProficiencies}" />
+    <div th:text="'class features: ' + ${characterClass.classFeatures}" />
+    <div th:text="'archetypes: ' + ${characterClass.archetypes}" />
+    <div th:text="'archetype meta name: ' + ${characterClass.archetypeMetaName}" />
+    <div th:text="'spell casting ability: ' + ${characterClass.spellCastingAbility}" />
+    <div th:text="'cantrips known: ' + ${characterClass.cantripsKnown}" />
+    <div th:text="'spells known: ' + ${characterClass.spellsKnown}" />
+    <div th:text="'spell slots per level: ' + ${characterClass.spellSlotsPerLevel}" />
+    <a href="/background">Submit another character class</a>
 </body>
 </html>

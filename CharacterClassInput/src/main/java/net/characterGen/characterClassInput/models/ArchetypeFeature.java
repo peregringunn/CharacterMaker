@@ -4,7 +4,6 @@ import lombok.Data;
 
 @Data
 public class ArchetypeFeature {
-	private String id;
 	private String name;
 	private int level;
 	private String description;
