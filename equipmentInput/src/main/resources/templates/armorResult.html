@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Armor result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'name: ' + ${armor.name}" />
+    <p th:text="'cost: ' + ${armor.cost}" />
+    <p th:text="'weight: ' + ${armor.weight}" />
+    <p th:text="'type: ' + ${armor.type}" />
+    <p th:text="'bonus: ' + ${armor.bonus}" />
+    <p th:text="'maxDex: ' + ${armor.maxDex}" />
+    <p th:text="'minStr: ' + ${armor.minStr}" />
+    <p th:text="'stealthDisadvantage: ' + ${armor.stealthDisadvantage}" />
+    <p th:text="'magicBonus: ' + ${armor.magicBonus}" />
+    <a href="/background">Submit another message</a>
+</body>
+</html>

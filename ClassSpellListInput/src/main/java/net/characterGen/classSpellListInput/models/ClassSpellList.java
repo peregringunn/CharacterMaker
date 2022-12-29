@@ -1,16 +1,11 @@
-package net.characterGen.classSpellListMongo.Models;
+package net.characterGen.classSpellListInput.models;
 
 import java.util.List;
-
-import org.springframework.data.annotation.Id;
-import org.springframework.data.mongodb.core.mapping.Document;
 
 import lombok.Data;
 
 @Data
-@Document
 public class ClassSpellList {
-	@Id
 	private String className;
 	private List<String> cantrips;
 	private List<String> first;

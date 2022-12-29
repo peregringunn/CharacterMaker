@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Equipment result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'name: ' + ${equipment.name}" />
+    <p th:text="'cost: ' + ${equipment.cost}" />
+    <p th:text="'weight: ' + ${equipment.weight}" />
+    <p th:text="'description: ' + ${equipment.description}" />
+    <a href="/background">Submit another message</a>
+</body>
+</html>

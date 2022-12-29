@@ -1,0 +1,254 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Spell List entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Input a new spell list</h1>
+    <form action="#" th:action="@{/classSpellList}" th:object="${classSpellList}" method="post" enctype="multipart/form-data">
+    <div>Name: <input type="text" th:field="*{className}" /></div>
+    <div class "form-group">
+    	<label for="cantrips">Cantrips</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addCantrip" id="addCantrip">
+    		Add Cantrip
+    	</button>
+    	<div th:if="*{cantrips}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{cantrips}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{cantrips[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeCantrip" id="removeCantrip" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="first">First</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addFirst" id="addFirst">
+    		Add First Level Spell
+    	</button>
+    	<div th:if="*{first}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{first}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{first[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeFirst" id="removeFirst" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="second">Second</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSecond" id="addSecond">
+    		Add Second Level Spell
+    	</button>
+    	<div th:if="*{second}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{second}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{second[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSecond" id="removeSecond" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="third">Third</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addThird" id="addThird">
+    		Add Third Level Spell
+    	</button>
+    	<div th:if="*{third}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{third}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{third[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeThird" id="removeThird" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="fourth">Fourth</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addFourth" id="addFourth">
+    		Add Fourth Level Spell
+    	</button>
+    	<div th:if="*{fourth}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{fourth}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{fourth[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeFourth" id="removeFourth" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="fith">Fith</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addFith" id="addFith">
+    		Add Fith Level Spell
+    	</button>
+    	<div th:if="*{fith}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{fith}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{fith[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeFith" id="removeFith" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="sixth">Sixth</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSixth" id="addSixth">
+    		Add Sixth Level Spell
+    	</button>
+    	<div th:if="*{sixth}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{sixth}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{sixth[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSixth" id="removeSixth" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="seventh">Seventh</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSeventh" id="addSeventh">
+    		Add Seventh Level Spell
+    	</button>
+    	<div th:if="*{seventh}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{seventh}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{seventh[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeSeventh" id="removeSeventh" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="eighth">Eighth</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addEighth" id="addEighth">
+    		Add Eighth Level Spell
+    	</button>
+    	<div th:if="*{eighth}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{eighth}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{eighth[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeEighth" id="removeEighth" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div class "form-group">
+    	<label for="ninth">Ninth</label>
+    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addNinth" id="addNinth">
+    		Add Ninth Level Spell
+    	</button>
+    	<div th:if="*{ninth}">
+			<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Spell name</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{ninth}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{ninth[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeNinth" id="removeNinth" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+        	</table>
+    	</div>
+    </div>
+    <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+    </form>
+</body>
+</html>
