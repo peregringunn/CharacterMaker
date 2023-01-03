@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Armor result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'name: ' + ${weapon.name}" />
+    <p th:text="'cost: ' + ${weapon.cost}" />
+    <p th:text="'weight: ' + ${weapon.weight}" />
+    <p th:text="'type: ' + ${weapon.type}" />
+    <p th:text="'damage: ' + ${weapon.damage}" />
+    <p th:text="'properties: ' + ${weapon.properties}" />
+    <a href="/background">Submit another message</a>
+</body>
+</html>

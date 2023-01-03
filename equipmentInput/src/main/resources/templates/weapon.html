@@ -1,0 +1,42 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Weapon entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Input a new weapon</h1>
+    <form action="#" th:action="@{/weapon}" th:object="${weapon}" method="post" enctype="multipart/form-data">
+    	<div>Name: <input type="text" th:field="*{name}" /></div>
+    	<div>Cost: <input type="number" step="0.01" th:field="*{cost}" /></div>
+    	<div>Weight: <input type="number" step="0.01" th:field="*{weight}" /></div>
+    	<div>Description: <input type="text" th:field="*{description}" /></div>
+    	<div>Type: <input type="text" th:field="*{type}" /></div>
+    	<div>Damage: <input type="text" th:field="*{damage}" /></div>
+	    <div class "form-group">
+	    	<label for="properties">Cantrips</label>
+	    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addProperty" id="addProperty">
+	    		Add Property
+	    	</button>
+	    	<div th:if="*{properties}">
+				<table cellpadding="5px 15px;">
+		            <thead>
+		            <tr>
+		                <th>Index</th>
+		                <th>Property</th>
+		                <th></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr th:each="eval, stat: *{properties}">
+		                <td th:text="${stat.count}">1</td>
+		                <td><input type="text" class="form-control" th:field="*{properties[__${stat.index}__]}"></td>
+		                <td><button class="btn btn-info" type="submit" name="removeProperty" id="removeProperty" th:value="${stat.index}">Remove</button></td>
+		            </tr>
+		            </tbody>
+	        	</table>
+	    	</div>
+	    </div>
+    	<div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+    </form>
+</body>
+</html>

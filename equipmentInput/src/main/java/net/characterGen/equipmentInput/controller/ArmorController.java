@@ -13,7 +13,7 @@ import net.characterGen.equipmentInput.service.ArmorService;
 
 @Controller
 @RequestMapping
-public class armorController {
+public class ArmorController {
 	
 	@Autowired
 	ArmorService service;

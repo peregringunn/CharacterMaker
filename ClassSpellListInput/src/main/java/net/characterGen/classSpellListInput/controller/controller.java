@@ -29,14 +29,14 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping("classSpellList")
+	@PostMapping("/classSpellList")
 	public String spellListInput(@ModelAttribute ClassSpellList classSpellList, Model model) {
 		model.addAttribute("classSpellList", classSpellList);
 		service.addSpellList(classSpellList);
 		return "result";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addCantrip"})
+	@PostMapping(value = "/classSpellList", params = {"addCantrip"})
 	public String addCantrip(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getCantrips()) {
@@ -50,13 +50,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeCantrip"})
+	@PostMapping(value = "/classSpellList", params = {"removeCantrip"})
 	public String removeCantrip(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getCantrips().remove(Integer.parseInt(request.getParameter("removeCantrip")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addFirst"})
+	@PostMapping(value = "/classSpellList", params = {"addFirst"})
 	public String addFirst(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getFirst()) {
@@ -70,13 +70,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeFirst"})
+	@PostMapping(value = "/classSpellList", params = {"removeFirst"})
 	public String removeFirst(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getFirst().remove(Integer.parseInt(request.getParameter("removeFirst")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addSecond"})
+	@PostMapping(value = "/classSpellList", params = {"addSecond"})
 	public String addSecond(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getSecond()) {
@@ -90,13 +90,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeSecond"})
+	@PostMapping(value = "/classSpellList", params = {"removeSecond"})
 	public String removeSecond(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getSecond().remove(Integer.parseInt(request.getParameter("removeSecond")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addThird"})
+	@PostMapping(value = "/classSpellList", params = {"addThird"})
 	public String addThird(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getThird()) {
@@ -110,13 +110,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeThird"})
+	@PostMapping(value = "/classSpellList", params = {"removeThird"})
 	public String removeThird(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getThird().remove(Integer.parseInt(request.getParameter("removeThird")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addFourth"})
+	@PostMapping(value = "/classSpellList", params = {"addFourth"})
 	public String addFourth(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getFourth()) {
@@ -130,13 +130,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeFourth"})
+	@PostMapping(value = "/classSpellList", params = {"removeFourth"})
 	public String removeFourth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getFourth().remove(Integer.parseInt(request.getParameter("removeFourth")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addFith"})
+	@PostMapping(value = "/classSpellList", params = {"addFith"})
 	public String addFith(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getFith()) {
@@ -150,13 +150,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeFith"})
+	@PostMapping(value = "/classSpellList", params = {"removeFith"})
 	public String removeFith(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getFith().remove(Integer.parseInt(request.getParameter("removeFith")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addSixth"})
+	@PostMapping(value = "/classSpellList", params = {"addSixth"})
 	public String addSixth(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getSixth()) {
@@ -170,13 +170,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeSixth"})
+	@PostMapping(value = "/classSpellList", params = {"removeSixth"})
 	public String removeSixth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getSixth().remove(Integer.parseInt(request.getParameter("removeSixth")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addSeventh"})
+	@PostMapping(value = "/classSpellList", params = {"addSeventh"})
 	public String addSeventh(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getSeventh()) {
@@ -190,13 +190,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeSeventh"})
+	@PostMapping(value = "/classSpellList", params = {"removeSeventh"})
 	public String removeSeventh(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getSeventh().remove(Integer.parseInt(request.getParameter("removeSeventh")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addEighth"})
+	@PostMapping(value = "/classSpellList", params = {"addEighth"})
 	public String addEighth(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getEighth()) {
@@ -210,13 +210,13 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeEighth"})
+	@PostMapping(value = "/classSpellList", params = {"removeEighth"})
 	public String removeEighth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getEighth().remove(Integer.parseInt(request.getParameter("removeEighth")));
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"addNinth"})
+	@PostMapping(value = "/classSpellList", params = {"addNinth"})
 	public String addNinth(ClassSpellList classSpellList, BindingResult bindingResult) {
 		if (null!=classSpellList) {
 			if (null==classSpellList.getNinth()) {
@@ -230,7 +230,7 @@ public class controller {
 		return "classSpellList";
 	}
 	
-	@PostMapping(value = "classSpellList", params = {"removeNinth"})
+	@PostMapping(value = "/classSpellList", params = {"removeNinth"})
 	public String removeNinth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
 		classSpellList.getNinth().remove(Integer.parseInt(request.getParameter("removeNinth")));
 		return "classSpellList";
