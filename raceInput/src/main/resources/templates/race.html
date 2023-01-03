@@ -1,0 +1,120 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Race entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Input a new race</h1>
+    <form action="#" th:action="@{/race}" th:object="${race}" method="post" enctype="multipart/form-data">
+    	<div>Name: <input type="text" th:field="*{name}" /></div>
+    	<div>Age: <input type="text" step="0.01" th:field="*{age}" /></div>
+    	<div>Alignment: <input type="text" step="0.01" th:field="*{alignment}" /></div>
+    	<div>Size: <input type="text" th:field="*{size}" /></div>
+    	<div>Size Description: <input type="text" th:field="*{sizeDescription}" /></div>
+    	<div>Speed: <input type="number" th:field="*{speed}" /></div>
+	    <div class "form-group">
+	    	<label for="scorebonuses">Score Bonuses</label>
+	    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addBonus" id="addBonus">
+	    		Add Score Bonus
+	    	</button>
+	    	<div th:if="*{scoreBonuses}">
+				<table cellpadding="5px 15px;">
+		            <thead>
+		            <tr>
+		                <th>Index</th>
+		                <th>Score</th>
+		                <th>Bonus</th>
+		                <th></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr th:each="eval, stat: *{scoreBonuses}">
+		                <td th:text="${stat.count}">1</td>
+		                <td><input type="text" class="form-control" th:field="*{scoreBonuses[__${stat.index}__].scoreName}"></td>
+		                <td><input type="number" class="form-control" th:field="*{scoreBonuses[__${stat.index}__].bonus}"></td>
+		                <td><button class="btn btn-info" type="submit" name="removeBonus" id="removeBonus" th:value="${stat.index}">Remove</button></td>
+		            </tr>
+		            </tbody>
+	        	</table>
+	    	</div>
+	    </div>
+	    <div class "form-group">
+	    	<label for="proficiencies">Proficiencies</label>
+	    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addProficiency" id="addProficiency">
+	    		Add Proficiency
+	    	</button>
+	    	<div th:if="*{proficiencies}">
+				<table cellpadding="5px 15px;">
+		            <thead>
+		            <tr>
+		                <th>Index</th>
+		                <th>Proficiency</th>
+		                <th></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr th:each="eval, stat: *{proficiencies}">
+		                <td th:text="${stat.count}">1</td>
+		                <td><input type="text" class="form-control" th:field="*{proficiencies[__${stat.index}__]}"></td>
+		                <td><button class="btn btn-info" type="submit" name="removeProficiency" id="removeProficiency" th:value="${stat.index}">Remove</button></td>
+		            </tr>
+		            </tbody>
+	        	</table>
+	    	</div>
+	    </div>	 
+	    <div class "form-group">
+	    	<label for="traits">Traits</label>
+	    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addTrait" id="addTrait">
+	    		Add Trait
+	    	</button>
+	    	<div th:if="*{traits}">
+				<table cellpadding="5px 15px;">
+		            <thead>
+		            <tr>
+		                <th>Index</th>
+		                <th>Name</th>
+		                <th>Description</th>
+		                <th></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr th:each="eval, stat: *{traits}">
+		                <td th:text="${stat.count}">1</td>
+		                <td><input type="text" class="form-control" th:field="*{traits[__${stat.index}__].name}"></td>
+		                <td><input type="text" class="form-control" th:field="*{traits[__${stat.index}__].description}"></td>
+		                <td><button class="btn btn-info" type="submit" name="removeTrait" id="removeTrait" th:value="${stat.index}">Remove</button></td>
+		            </tr>
+		            </tbody>
+	        	</table>
+	    	</div>
+	    </div>
+	    <div class "form-group">
+	    	<label for="subraces">Traits</label>
+	    	<button class="btn btn-info" th:nowrap="true" type="submit" name="addSubrace" id="addSubrace">
+	    		Add Subrace
+	    	</button>
+	    	<div th:if="*{subraces}">
+				<table cellpadding="5px 15px;">
+		            <thead>
+		            <tr>
+		                <th>Index</th>
+		                <th>Name</th>
+		                <th>Score Bonuses</th>
+		                <th>Traits</th>
+		                <th></th>
+		            </tr>
+		            </thead>
+		            <tbody>
+		            <tr th:each="eval, stat: *{subraces}">
+		                <td th:text="${stat.count}">1</td>
+		                <td><input type="text" class="form-control" th:field="*{subraces[__${stat.index}__]}"></td>
+		                <td><button class="btn btn-info" type="submit" name="removeSubrace" id="removeSubrace" th:value="${stat.index}">Remove</button></td>
+		            </tr>
+		            </tbody>
+	        	</table>
+	    	</div>
+	    </div> 
+    	<div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+    </form>
+</body>
+</html>
