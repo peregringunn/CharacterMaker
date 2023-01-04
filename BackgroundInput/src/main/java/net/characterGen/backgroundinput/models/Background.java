@@ -11,5 +11,8 @@ public class Background {
 	private List<String> languages;
 	private List<String> equipment;
 	private Feature feature;
-	private List<Charateristics> characteristics;	
+	private List<String> personalityTraits;
+	private List<String> ideals;
+	private List<String> bonds;
+	private List<String> flaws;	
 }

@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Race Result</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Result</h1>
+    <p th:text="'name: ' + ${subrace.name}" />
+    <p th:text="'parent race: ' + ${subrace.parentRace}" />
+    <p th:text="'score bonuses: ' + ${subrace.scoreBonuses}" />
+    <p th:text="'traits: ' + ${subrace.traits}" />
+    <a href="/race">Submit another message</a>
+</body>
+</html>

@@ -13,7 +13,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 import jakarta.servlet.http.HttpServletRequest;
 import net.characterGen.backgroundinput.models.Background;
-import net.characterGen.backgroundinput.models.Charateristics;
 import net.characterGen.backgroundinput.service.BackgroundService;
 
 @org.springframework.stereotype.Controller
@@ -34,27 +33,6 @@ public class Controller {
 		model.addAttribute("background", background);
 		service.addBackground(background);
 		return "result";		
-	}
-	
-
-	@PostMapping(value = "/background", params = {"addCharateristic"})
-	public String addCharateristic(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getCharacteristics()) {
-				List<Charateristics> charateristicList = new ArrayList<>();
-				charateristicList.add(new Charateristics());
-				background.setCharacteristics(charateristicList);
-			} else {
-				background.getCharacteristics().add(new Charateristics());
-			}
-		}
-		return "background";
-	}
-	
-	@PostMapping(value = "/background", params = {"removeCharateristic"})
-	public String removeCharateristic (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getCharacteristics().remove(Integer.parseInt(request.getParameter("removeCharateristic")));
-		return "background";
 	}
 
 	@PostMapping(value = "/background", params = {"addProficiency"})
@@ -92,7 +70,6 @@ public class Controller {
 		return "background";
 	}
 	
-	
 	@PostMapping(value = "/background", params = {"removeLanguage"})
 	public String removeLanguage (Background background, BindingResult bindingResult, HttpServletRequest request) {
 		background.getLanguages().remove(Integer.parseInt(request.getParameter("removeLanguage")));
@@ -117,6 +94,90 @@ public class Controller {
 	@PostMapping(value = "/background", params = {"removeEquipment"})
 	public String removeEquipment (Background background, BindingResult bindingResult, HttpServletRequest request) {
 		background.getEquipment().remove(Integer.parseInt(request.getParameter("removeEquipment")));
+		return "background";
+	}
+	
+	@PostMapping(value = "/background", params = {"addPersonalityTrait"})
+	public String addPersonalityTrait(Background background, BindingResult bindingResult) {
+		if(null!=background) {
+			if(null==background.getPersonalityTraits()) {
+				List<String> personalityTraitList = new ArrayList<>();
+				personalityTraitList.add(new String());
+				background.setPersonalityTraits(personalityTraitList);
+			} else {
+				background.getPersonalityTraits().add(new String());
+			}
+		}
+		return "background";
+	}
+	
+	
+	@PostMapping(value = "/background", params = {"removePersonalityTrait"})
+	public String removePersonalityTraits (Background background, BindingResult bindingResult, HttpServletRequest request) {
+		background.getPersonalityTraits().remove(Integer.parseInt(request.getParameter("removePersonalityTrait")));
+		return "background";
+	}
+	
+	@PostMapping(value = "/background", params = {"addIdeal"})
+	public String addIdeal(Background background, BindingResult bindingResult) {
+		if(null!=background) {
+			if(null==background.getIdeals()) {
+				List<String> idealList = new ArrayList<>();
+				idealList.add(new String());
+				background.setIdeals(idealList);
+			} else {
+				background.getIdeals().add(new String());
+			}
+		}
+		return "background";
+	}
+	
+	
+	@PostMapping(value = "/background", params = {"removeIdeal"})
+	public String removeIdeal (Background background, BindingResult bindingResult, HttpServletRequest request) {
+		background.getIdeals().remove(Integer.parseInt(request.getParameter("removeIdeal")));
+		return "background";
+	}
+	
+	@PostMapping(value = "/background", params = {"addBond"})
+	public String addBond(Background background, BindingResult bindingResult) {
+		if(null!=background) {
+			if(null==background.getBonds()) {
+				List<String> bondList = new ArrayList<>();
+				bondList.add(new String());
+				background.setBonds(bondList);
+			} else {
+				background.getBonds().add(new String());
+			}
+		}
+		return "background";
+	}
+	
+	
+	@PostMapping(value = "/background", params = {"removeBond"})
+	public String removeBond (Background background, BindingResult bindingResult, HttpServletRequest request) {
+		background.getBonds().remove(Integer.parseInt(request.getParameter("removeBond")));
+		return "background";
+	}
+	
+	@PostMapping(value = "/background", params = {"addFlaw"})
+	public String addFlaw(Background background, BindingResult bindingResult) {
+		if(null!=background) {
+			if(null==background.getFlaws()) {
+				List<String> flawList = new ArrayList<>();
+				flawList.add(new String());
+				background.setFlaws(flawList);
+			} else {
+				background.getFlaws().add(new String());
+			}
+		}
+		return "background";
+	}
+	
+	
+	@PostMapping(value = "/background", params = {"removeFlaw"})
+	public String removeFlaw (Background background, BindingResult bindingResult, HttpServletRequest request) {
+		background.getFlaws().remove(Integer.parseInt(request.getParameter("removeFlaw")));
 		return "background";
 	}
 }

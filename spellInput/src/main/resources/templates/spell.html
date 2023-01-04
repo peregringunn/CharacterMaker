@@ -1,0 +1,26 @@
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Spell entry</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Input a new spell</h1>
+    <form action="#" th:action="@{/spell}" th:object="${spell}" method="post" enctype="multipart/form-data">
+    	<div>Name: <input type="text" th:field="*{name}" /></div>
+    	<div>Spell Level: <input type="number" th:field="*{spellLevel}" /></div>
+    	<div>School: <input type="text" th:field="*{school}" /></div>
+    	<div>Ritual: <input type="checkbox" th:field="*{ritual}" /></div>
+    	<div>Concentration: <input type="checkbox" th:field="*{concentration}" /></div>
+    	<div>Componets: <input type="text" th:field="*{componets}" /></div>
+    	<div>Costly Componet: <input type="checkbox" th:field="*{costlyComponet}" /></div>
+    	<div>Casting Time: <input type="text" th:field="*{castingTime}" /></div>
+    	<div>Duration: <input type="text" th:field="*{duration}" /></div>
+    	<div>Save: <input type="text" th:field="*{save}" /></div>
+    	<div>Range: <input type="text" th:field="*{range}" /></div>
+    	<div>Area of Effect: <input type="text" th:field="*{areaOfEffect}" /></div>
+    	<div>Targets: <input type="text" th:field="*{targets}" /></div>
+    	<div>Description: <input type="text" th:field="*{description}" /></div>
+    	<div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+    </form>
+</body>
+</html>

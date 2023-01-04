@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import net.characterGen.RaceMongo.Models.Race;
+import net.characterGen.RaceMongo.Models.Subrace;
 import net.characterGen.RaceMongo.Service.RaceService;
+import net.characterGen.RaceMongo.Service.SubraceService;
 
 @RestController
 @RequestMapping("/race")
@@ -21,6 +23,8 @@ public class controller {
 	
 	@Autowired
 	RaceService service;
+	@Autowired
+	SubraceService subraceService;
 	
 	@GetMapping("/")
 	public ResponseEntity<List<Race>> getAllRaces(){
@@ -35,6 +39,22 @@ public class controller {
 	@PostMapping("/")
 	public ResponseEntity<HttpStatus> createRaces (@RequestBody String races){
 		service.addRaces(races);
+		return ResponseEntity.ok(HttpStatus.CREATED);
+	}
+	
+	@GetMapping("/subrace")
+	public ResponseEntity<List<Subrace>> getAllSubraces(){
+		return ResponseEntity.ok(subraceService.getAllSubRaces());
+	}
+	
+	@GetMapping("/subrace/{name}")
+	public ResponseEntity<Subrace> getSubraceByName(@PathVariable String name){
+		return ResponseEntity.ok(subraceService.getSubraceByName(name));
+	}
+	
+	@PostMapping("/subrace")
+	public ResponseEntity<HttpStatus> createSubraces(@RequestBody String subraces){
+		subraceService.addSubraces(subraces);
 		return ResponseEntity.ok(HttpStatus.CREATED);
 	}
 }

@@ -9,7 +9,6 @@ import lombok.Data;
 @Document
 public class Spell {
 	@Id
-	private String id;
 	private String name;
 	private int spellLevel;
 	private String school;

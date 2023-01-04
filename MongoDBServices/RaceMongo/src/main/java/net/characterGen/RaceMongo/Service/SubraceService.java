@@ -20,7 +20,22 @@ public class SubraceService {
 	private SubraceRepository repo;
 	
 	public List<Subrace> getAllSubRaces(){
-		return repo.
+		return repo.findAll();
 	}
 	
+	public Subrace getSubraceByName(String name) {
+		return repo.findSubraceByName(name);
+	}
+	
+	public void addSubraces (String subraces) {
+		final ObjectMapper objectMapper = new ObjectMapper();
+		try {
+			Subrace[] racesArr = objectMapper.readValue(subraces, Subrace[].class);
+			for(int i=0;i<racesArr.length;i++) {
+				repo.save(racesArr[i]);
+			}
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+	}
 }

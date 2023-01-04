@@ -87,29 +87,97 @@
         	<div>Feature description: <input type="text" th:field="*{feature.description}" /></div>
         </div>
         <div class="form-group">
-        	<label for="characteristics">Charateristics</label>
-        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addCharateristic" id="addCharateristic">
-        		Add Charateristic
+        	<label for="personalityTraits">Personality Traits</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addPersonalityTrait" id="addPersonalityTrait">
+        		Add Personality Trait
         	</button>
         </div>
-        <div th:if="*{characteristics}">
+        <div th:if="*{personalityTraits}">
         	<table cellpadding="5px 15px;">
 	            <thead>
 	            <tr>
 	                <th>Index</th>
-	                <th>Name</th>
-	                <th>Description</th>
-	                <th>Type</th>
+	                <th>Personality Trait</th>
 	                <th></th>
 	            </tr>
 	            </thead>
 	            <tbody>
-	            <tr th:each="eval, stat: *{characteristics}">
+	            <tr th:each="eval, stat: *{personalityTraits}">
 	                <td th:text="${stat.count}">1</td>
-	                <td><input type="text" class="form-control" th:field="*{characteristics[__${stat.index}__].name}"></td>
-	                <td><input type="text" class="form-control" th:field="*{characteristics[__${stat.index}__].description}"></td>
-	                <td><input type="text" class="form-control" th:field="*{characteristics[__${stat.index}__].type}"></td>
-	                <td><button class="btn btn-info" type="submit" name="removeCharateristic" id="removeCharateristic" th:value="${stat.index}">Remove</button></td>
+	                <td><input type="text" class="form-control" th:field="*{personalityTraits[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removePersonalityTrait" id="removePersonalityTrait" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        </div>
+        <div class="form-group">
+        	<label for="ideals">Ideals</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addIdeal" id="addIdeal">
+        		Add Ideal
+        	</button>
+        </div>
+        <div th:if="*{ideals}">
+        	<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Ideal</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{ideals}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{ideals[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeIdeal" id="removeIdeal" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        </div>
+        <div class="form-group">
+        	<label for="bonds">Bonds</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addBond" id="addBond">
+        		Add Bond
+        	</button>
+        </div>
+        <div th:if="*{bonds}">
+        	<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Bond</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{bonds}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{bonds[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeBond" id="removeBond" th:value="${stat.index}">Remove</button></td>
+	            </tr>
+	            </tbody>
+	        </table>
+        </div>
+        <div class="form-group">
+        	<label for="flaws">Flaws</label>
+        	<button class="btn btn-info" th:nowrap="true" type="submit" name="addFlaw" id="addFlaw">
+        		Add Flaw
+        	</button>
+        </div>
+        <div th:if="*{flaws}">
+        	<table cellpadding="5px 15px;">
+	            <thead>
+	            <tr>
+	                <th>Index</th>
+	                <th>Flaw</th>
+	                <th></th>
+	            </tr>
+	            </thead>
+	            <tbody>
+	            <tr th:each="eval, stat: *{flaws}">
+	                <td th:text="${stat.count}">1</td>
+	                <td><input type="text" class="form-control" th:field="*{flaws[__${stat.index}__]}"></td>
+	                <td><button class="btn btn-info" type="submit" name="removeFlaw" id="removeFlaw" th:value="${stat.index}">Remove</button></td>
 	            </tr>
 	            </tbody>
 	        </table>
