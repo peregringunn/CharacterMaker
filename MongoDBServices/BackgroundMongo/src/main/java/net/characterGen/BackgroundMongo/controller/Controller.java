@@ -37,4 +37,9 @@ public class Controller {
 		service.addBackgrounds(Backgrounds);
 		return ResponseEntity.ok(HttpStatus.CREATED);
 	}
+	
+	@GetMapping("/names")
+	public ResponseEntity<List<String>> getBackgroundNames() {
+		return ResponseEntity.ok(service.getBackgroundNames());
+	}
 }

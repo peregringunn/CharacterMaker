@@ -1,7 +1,7 @@
 package net.characterGen.BackgroundMongo.Service;
 
+import java.util.ArrayList;
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.repository.config.EnableMongoRepositories;
 import org.springframework.stereotype.Service;
@@ -40,5 +40,14 @@ public class BackgroundService {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public List<String> getBackgroundNames() {
+		List<Background> backgroundList = repo.findAll();
+		List<String> nameList = new ArrayList<>();
+		for (int i = 0 ; i < backgroundList.size(); i++) {
+			nameList.add(backgroundList.get(i).getName());
+		}
+		return nameList;
 	}
 }

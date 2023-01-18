@@ -12,7 +12,7 @@ spring:
         - id: background
           uri: ${BACKGROUND_URI}
           predicates:
-          - Path=/background/
+          - Path=/background/**
         - id: character-class
           uri: ${CHARACTER_CLASS_URI}
           predicates:
