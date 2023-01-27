@@ -7,16 +7,22 @@
 <body>
 	<h1>Create a new character</h1>
     <form action="#" th:action="@{/creation}" th:object="${playerCharacter}" method="post" enctype="multipart/form-data">
-    	<div>Name: <input type="text" th:field="*{name}" /></div>
-        <div>Class: <select th:field=*{className[0]}>
-			<option th:each="class : ${classList}" th:value=${class} th:text=${class} />          
-        </select></div>
-        <div>Race: <select th:field=*{race}>
-			<option th:each="race : ${raceList}" th:value=${race} th:text=${race} />          
-        </select></div>
-        <div>Background: <select th:field=*{background}>
-			<option th:each="background : ${backgroundList}" th:value=${background} th:text=${background} />          
-        </select></div>
+    	<div>
+    		Name: <input type="text" th:field="*{name}" />
+    		Player Name: <input type="text" th:field="*{playerName}" />
+    		
+    	</div>
+        <div>
+	        Class: <select th:field=*{className[0]}>
+				<option th:each="class : ${classList}" th:value=${class} th:text=${class} />          
+	        </select>
+	        Race: <select th:field=*{race}>
+				<option th:each="race : ${raceList}" th:value=${race} th:text=${race} />          
+	        </select>
+	        Background: <select th:field=*{background}>
+				<option th:each="background : ${backgroundList}" th:value=${background} th:text=${background} />          
+	        </select>
+        </div>
         <!--div class "form-group">
         	<label for="proficiencies">Proficiencies</label>
         	<button class="btn btn-info" th:nowrap="true" type="submit" name="addProficiency" id="addProficiency">

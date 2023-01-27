@@ -42,6 +42,11 @@ public class controller {
 		return ResponseEntity.ok(HttpStatus.CREATED);
 	}
 	
+	@GetMapping("/names")
+	public ResponseEntity<List<String>> getRaceNames(){
+		return ResponseEntity.ok(service.getRaceNames());
+	}
+	
 	@GetMapping("/subrace")
 	public ResponseEntity<List<Subrace>> getAllSubraces(){
 		return ResponseEntity.ok(subraceService.getAllSubRaces());

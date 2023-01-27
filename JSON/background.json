@@ -55,4 +55,11 @@
     "Once I pick a goal, I become obsessed with it to the detriment of everything else in my life."
   ],
   "_class": "net.characterGen.BackgroundMongo.Models.Background"
+},{
+  "_id": "Criminal",
+  "feature": {
+    "name": "",
+    "description": ""
+  },
+  "_class": "net.characterGen.BackgroundMongo.Models.Background"
 }]

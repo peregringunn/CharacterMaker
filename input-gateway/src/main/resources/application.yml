@@ -20,7 +20,7 @@ spring:
         - id: character
           uri: ${CHARACTER_URI}
           predicates:
-          - Path=/creation**
+          - Path=/creation/**
         - id: spell-list
           uri: ${SPELL_LIST_URI}
           predicates:

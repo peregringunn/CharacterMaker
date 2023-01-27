@@ -6,6 +6,9 @@ import lombok.Data;
 
 @Data
 public class CharacterClass {
+	
+	
+	
 	private String name;
 	private int hitDie;
 	private List<String> weaponProficiencies;
@@ -17,7 +20,7 @@ public class CharacterClass {
 	private List<Archetype> archetypes;
 	private String archetypeMetaName;
 	private String spellCastingAbility;
-	private int cantripsKnown;
+	private List<Integer> cantripsKnown;
 	private List<Integer> spellsKnown;
 	private List<List<Integer>> spellSlotsPerLevel;
 }

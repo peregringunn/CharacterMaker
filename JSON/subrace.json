@@ -1,0 +1,41 @@
+[{
+  "_id": "Hill Dwarf",
+  "parentRace": "Dwarf",
+  "scoreBonuses": [
+    {
+      "scoreName": "Wisdom",
+      "bonus": 1
+    }
+  ],
+  "traits": [
+    {
+      "name": "Dwarven Toughness",
+      "description": "Your hit point maximum increases by 1, and it increases by 1 every time you gain a level."
+    }
+  ],
+  "_class": "net.characterGen.RaceMongo.Models.Subrace"
+},{
+  "_id": "High Elf",
+  "parentRace": "Elf",
+  "scoreBonuses": [
+    {
+      "scoreName": "Intelligence",
+      "bonus": 1
+    }
+  ],
+  "traits": [
+    {
+      "name": "Elf Weapon Training",
+      "description": "You have proficiency with the longsword, shortsword, shortbow, and longbow."
+    },
+    {
+      "name": "Cantrip",
+      "description": "You know one cantrip of your choice from the wizard spell list. Intelligence is your spellcasting ability for it."
+    },
+    {
+      "name": "Extra Language",
+      "description": "You can speak, read, and write one extra language of your choice"
+    }
+  ],
+  "_class": "net.characterGen.RaceMongo.Models.Subrace"
+}]

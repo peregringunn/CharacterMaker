@@ -1,5 +1,6 @@
 package net.characterGen.RaceMongo.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,6 +39,15 @@ public class RaceService {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public List<String> getRaceNames() {
+		List<Race> raceList = repo.findAll();
+		List<String> raceNameList = new ArrayList<>();
+		for (int i = 0; i < raceList.size(); i++) {
+			raceNameList.add(raceList.get(i).getName());
+		}
+		return raceNameList;
 	}
 
 }

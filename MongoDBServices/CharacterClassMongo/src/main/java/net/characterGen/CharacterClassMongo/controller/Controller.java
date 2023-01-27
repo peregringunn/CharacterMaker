@@ -35,7 +35,11 @@ public class Controller {
 	
 	@GetMapping("/{name}")
 	public ResponseEntity<CharacterClass> getClassByName(@PathVariable String name){
-		return ResponseEntity.ok(service.getClassByName(name));
-		
+		return ResponseEntity.ok(service.getClassByName(name));	
+	}
+	
+	@GetMapping("/names")
+	public ResponseEntity<List<String>> getClassNames(){
+		return ResponseEntity.ok(service.getClassNames());
 	}
 }

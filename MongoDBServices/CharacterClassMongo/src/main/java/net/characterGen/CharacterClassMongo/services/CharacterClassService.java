@@ -1,5 +1,6 @@
 package net.characterGen.CharacterClassMongo.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,13 +38,23 @@ public class CharacterClassService {
 
 
 	public List<CharacterClass> getAllClasses() {
-		
 		return classRepo.findAll();
 	}
 
 
 	public CharacterClass getClassByName(String name) {
 		return classRepo.findClassByName(name);
+	}
+
+
+	public List<String> getClassNames() {
+		List<CharacterClass> classList = classRepo.findAll();
+		List<String> classNameList = new ArrayList<>();
+		for(int i = 0; i < classList.size(); i++) {
+			classNameList.add(classList.get(i).getName());
+		}
+		System.out.println(classNameList);
+		return classNameList;
 	}
 
 }

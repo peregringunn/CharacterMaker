@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head> 
+    <title>Make Race Selections</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+	<h1>Make Race Selections</h1>
+    <form action="#" th:action="@{/creation/race-choices}" th:object="${playerCharacter}" method="post" enctype="multipart/form-data">
+    <div>
+    	Subrace: <select th:field="*{subrace}">
+    		<option th:each="subrace : ${subraceList}" th:value=${subrace} th:text=${subrace} />
+    	</select>
+    </div>
+    <div><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></div>
+    </form>
+</body>
+</html>

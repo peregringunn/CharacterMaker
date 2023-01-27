@@ -2,23 +2,37 @@ package net.characterGen.characterCreation.service;
 
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpMethod;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.ObjectWriter;
+
 import net.characterGen.characterCreation.model.Ally;
 import net.characterGen.characterCreation.model.Attack;
 import net.characterGen.characterCreation.model.PlayerCharacter;
+import net.characterGen.characterCreation.model.Race;
 
 @Service
 public class CreationService {
+	
+	private final RestTemplate restTemplate;
+	private final String gatewayUri;
+	
+
+	public CreationService(RestTemplateBuilder restTemplateBuilder) {
+		super();
+		this.restTemplate = restTemplateBuilder.build();
+		this.gatewayUri = System.getenv("GATEWAY_URI");
+	}
 
 	public PlayerCharacter initialize(PlayerCharacter pc) {
 		pc.setAlliesAndOrganizations(new ArrayList<>());
@@ -48,45 +62,67 @@ public class CreationService {
 	}
 
     public List<String> getClassList() {
-    	
-//    	RestTemplate restTemplate = new RestTemplate();
-//    	String uri = "http://localhost:8080/class/names";
-    	
-        List<String> classList = new ArrayList<>();
-        classList.add("Fighter");
-        classList.add("Rouge");
-        classList.add("Wizard");
-        return classList;
+    	String uri =  gatewayUri + "/class/names";
+		return getList(uri);
     }
 
 	public Object getRaceList() {
-		List<String> raceList = new ArrayList<>();
-		raceList.add("Elf");
-		raceList.add("Human");
-		raceList.add("Dwarf");
-		return raceList;
+		String uri = gatewayUri + "/race/names";
+		return getList(uri);
 	}
 
 	public Object getBackgroundList() {
-		String uri = "http://localhost:8080/background/names";
+		String uri = gatewayUri + "/background/names";
 		
 		return getList(uri);
 	}
 
+	@SuppressWarnings({ "unchecked", "rawtypes" })
 	private List<String> getList(String uri) {
-		
 		List<String> list = new ArrayList();
-		
-		RestTemplate restTemplate = new RestTemplate();
-		
+		ObjectMapper mapper = new ObjectMapper();
+        ResponseEntity<String> result = restTemplate.getForEntity(uri, String.class);
+        try {
+        	list = mapper.readValue(result.getBody(), List.class);
+        }catch (Exception e){
+        	e.printStackTrace();
+        }
+		return list;
+	}
+
+	public void addCharacter(PlayerCharacter playerCharacter) {
+		String uri = gatewayUri + "/character/";
 		HttpHeaders headers = new HttpHeaders();
-		headers.setAccept(Collections.singletonList(MediaType.APPLICATION_JSON));
-		headers.add("user-agent", "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/54.0.2840.99 Safari/537.36");
-		HttpEntity<String> entity = new HttpEntity<>("parameters", headers);
-        ResponseEntity<?> result =
-                restTemplate.exchange(uri, HttpMethod.GET, entity, Class.class);
-        System.out.println(result.getBody());
+		headers.setContentType(MediaType.APPLICATION_JSON);
+		ObjectWriter objectWriter = new ObjectMapper().writer();
+		String jsonString;
+		try {
+			jsonString = "[" + objectWriter.writeValueAsString(playerCharacter) + "]";
+			HttpEntity<String> entity = new HttpEntity<String>(jsonString, headers);
+			ResponseEntity<String> response = this.restTemplate.postForEntity(uri, entity, String.class);
+			System.out.println(response);
+		} catch (JsonProcessingException e) {
+			e.printStackTrace();
+		}
+	}
+
+	public List<String> getSubraceList(String raceName) {
+		Race race = getRace(raceName);
+		return race.getSubraces();
+	}
+
+	private Race getRace(String raceName) {
+		ObjectMapper mapper = new ObjectMapper();
+        String uri = gatewayUri + "/race/" + raceName;
+		ResponseEntity<String> result = restTemplate.getForEntity(uri , String.class);
+        try {
+        	Race race = mapper.readValue(result.getBody(), Race.class);
+        	return race;
+        }catch (Exception e){
+        	e.printStackTrace();
+        }
 		return null;
 	}
+	
 
 }

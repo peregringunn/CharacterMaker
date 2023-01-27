@@ -28,8 +28,22 @@ public class CreationController {
 	@PostMapping("/creation")
 	public String creationInput(@ModelAttribute PlayerCharacter playerCharacter, Model model) {
 		model.addAttribute("playerCharacter", playerCharacter);
-		return "result";
+		service.addCharacter(playerCharacter);
+		model.addAttribute("subraceList", service.getSubraceList(playerCharacter.getRace()));
+		return "race-choices";
 	}
 	
+	@GetMapping("/creation/race-choices")
+	public String raceChoicesForm(@ModelAttribute PlayerCharacter playerCharacter, Model model) {
+		model.addAttribute("playerCharacter", playerCharacter);
+		return "race-choices";
+	}
+	
+	@PostMapping("/creation/race-choices")
+	public String raceChoicesInput(@ModelAttribute PlayerCharacter playerCharacter, Model model) {
+		model.addAttribute("playerCharacter", playerCharacter);
+		service.addCharacter(playerCharacter);
+		return "class-choices";
+	}
 	
 }
