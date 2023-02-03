@@ -39,174 +39,142 @@ public class Controller {
 	
 	@PostMapping(value = "/characterClass", params = {"addWeaponProficiency"})
 	public String addWeaponProficiency(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getWeaponProficiencies()) {
-				List<String> weaponProficienciesList = new ArrayList<>();
-				weaponProficienciesList.add(new String());
-				characterClass.setWeaponProficiencies(weaponProficienciesList);
-			} else {
-				characterClass.getWeaponProficiencies().add(new String());
-			}
+		try {
+			characterClass.addWeponProficiency("");
+		} catch (NullPointerException e) {
+			characterClass.setWeaponProficiencies(service.intializeStringList());
 		}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeWeaponProficiency"})
 	public String removeWeaponProficiency (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getWeaponProficiencies().remove(Integer.parseInt(request.getParameter("removeWeaponProficiency")));
+		int index = Integer.parseInt(request.getParameter("removeWeaponProficiency"));
+		characterClass.removeWeaponProficiency(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addArmorProficiency"})
 	public String addArmorProficiency(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getArmorProficiencies()) {
-				List<String> armorProficienciesList = new ArrayList<>();
-				armorProficienciesList.add(new String());
-				characterClass.setArmorProficiencies(armorProficienciesList);
-			} else {
-				characterClass.getArmorProficiencies().add(new String());
-			}
+		try {
+			characterClass.addArmorProficiency("");
+		} catch (NullPointerException e) {
+			characterClass.setArmorProficiencies(service.intializeStringList());
 		}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeArmorProficiency"})
 	public String removeArmorProficiency (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getArmorProficiencies().remove(Integer.parseInt(request.getParameter("removeArmorProficiency")));
+		int index = Integer.parseInt(request.getParameter("removeArmorProficiency"));
+		characterClass.removeArmorProficiency(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addToolProficiency"})
 	public String addToolProficiency(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getToolProficiencies()) {
-				List<String> toolProficienciesList = new ArrayList<>();
-				toolProficienciesList.add(new String());
-				characterClass.setToolProficiencies(toolProficienciesList);
-			} else {
-				characterClass.getToolProficiencies().add(new String());
-			}
-		}
+				try {
+					characterClass.addToolProficiency("");
+				} catch (NullPointerException e) {
+					characterClass.setToolProficiencies(service.intializeStringList());
+				}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeToolProficiency"})
 	public String removetoolProficiency (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getToolProficiencies().remove(Integer.parseInt(request.getParameter("removeToolProficiency")));
+		int index = Integer.parseInt(request.getParameter("removeToolProficiency"));
+		characterClass.removeToolProficiency(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addSkillProficiency"})
 	public String addSkillProficiency(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getSkillProficiencies()) {
-				List<String> skillProficienciesList = new ArrayList<>();
-				skillProficienciesList.add(new String());
-				characterClass.setSkillProficiencies(skillProficienciesList);
-			} else {
-				characterClass.getSkillProficiencies().add(new String());
-			}
+		try {
+			characterClass.addSkillProficiency("");
+		} catch (NullPointerException e) {
+			characterClass.setSkillProficiencies(service.intializeStringList());
 		}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeSkillProficiency"})
 	public String removeSkillProficiency (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getSkillProficiencies().remove(Integer.parseInt(request.getParameter("removeSkillProficiency")));
+		int index = Integer.parseInt(request.getParameter("removeSkillProficiency"));
+		characterClass.removeSkillProficiency(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addSavingThrowProficiency"})
 	public String addSavingThrowProficiency(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getSavingThrowProficiencies()) {
-				List<String> savingThrowProficienciesList = new ArrayList<>();
-				savingThrowProficienciesList.add(new String());
-				characterClass.setSavingThrowProficiencies(savingThrowProficienciesList);
-			} else {
-				characterClass.getSavingThrowProficiencies().add(new String());
-			}
+		try {
+			characterClass.addSavingThrowProficiency("");
+		} catch (NullPointerException e) {
+			characterClass.setSavingThrowProficiencies(service.intializeStringList());
 		}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeSavingThrowProficiency"})
 	public String removeSavingThrowProficiency (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getSavingThrowProficiencies().remove(Integer.parseInt(request.getParameter("removeSavingThrowProficiency")));
+		int index = Integer.parseInt(request.getParameter("removeSavingThrowProficiency"));
+		characterClass.removeSavingThrowProficiency(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addClassFeature"})
 	public String addSavingClassFeature(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getClassFeatures()) {
-				List<ClassFeature> classFeaturesList = new ArrayList<>();
-				classFeaturesList.add(new ClassFeature());
-				characterClass.setClassFeatures(classFeaturesList);
-			} else {
-				characterClass.getClassFeatures().add(new ClassFeature());
-			}
+		try {
+			characterClass.addClassFeatures(new ClassFeature());
+		} catch (NullPointerException e) {
+			characterClass.setClassFeatures(service.intializeClassFeatureList());
 		}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeClassFeature"})
 	public String removeClassFeature (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getClassFeatures().remove(Integer.parseInt(request.getParameter("removeClassFeature")));
+		int index = Integer.parseInt(request.getParameter("removeClassFeature"));
+		characterClass.removeClassFeature(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addArchetype"})
 	public String addArchetype(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getArchetypes()) {
-				List<Archetype> archetypeList = new ArrayList<>();
-				archetypeList.add(new Archetype());
-				characterClass.setArchetypes(archetypeList);
-			} else {
-				characterClass.getArchetypes().add(new Archetype());
-			}
+		try {
+			characterClass.addArchetypes(new Archetype());
+		} catch (Exception e) {
+			characterClass.setArchetypes(service.intializeArchetypeList());
 		}
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"removeArchetype"})
 	public String removeArchetype (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getArchetypes().remove(Integer.parseInt(request.getParameter("removeArchetype")));
+		int index = Integer.parseInt(request.getParameter("removeArchetype"));
+		characterClass.removeArchetype(index);
 		return "characterClass";
 	}
 	
 	@PostMapping(value = "/characterClass", params = {"addArchetypeFeature"})
 	public String addArchetypeFeature(CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		if(null!=characterClass) {
-			if(null==characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("addArchetypeFeature"))).getFeatures()) {
-				List<ClassFeature> archetypeFeaturesList = new ArrayList<>();
-				archetypeFeaturesList.add(new ClassFeature());
-				characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("addArchetypeFeature"))).setFeatures(archetypeFeaturesList);
-			} else {
-				characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("addArchetypeFeature"))).getFeatures().add(new ClassFeature());
-			}
+		int parseInt = Integer.parseInt(request.getParameter("addArchetypeFeature"));
+		try {
+			characterClass.addArchetypeFeature(parseInt, new ClassFeature());
+		} catch (NullPointerException e) {
+		    characterClass.initializeArchetypeFeatureList(parseInt, service.intializeClassFeatureList());
 		}
 		return "characterClass";
 	}
-	
-	@PostMapping(value = "/characterClass", params = {"removeArchetypeFeature"})
-	public String removeArchetypeFeature (CharacterClass characterClass, BindingResult bindingResult, HttpServletRequest request) {
-		characterClass.getArchetypes().get(Integer.parseInt(request.getParameter("archetypeIndex"))).getFeatures().remove(Integer.parseInt(request.getParameter("removeArchetypeFeature")));
-		return "characterClass";
-	}
-	
+		
 	@PostMapping(value = "/characterClass", params = {"addSpellsKnown"})
 	public String addSpellsKnown(CharacterClass characterClass, BindingResult bindingResult) {
-		if(null!=characterClass) {
-			if(null==characterClass.getSpellsKnown()) {
-				List<Integer> spellsKnownList = new ArrayList<>();
-				for (int i = 0; i < 20; i++) {
-					spellsKnownList.add(0);
-				}
-				characterClass.setSpellsKnown(spellsKnownList);
+		if(null==characterClass.getSpellsKnown()) {
+			List<Integer> spellsKnownList = new ArrayList<>();
+			for (int i = 0; i < 20; i++) {
+				spellsKnownList.add(0);
 			}
+			characterClass.setSpellsKnown(spellsKnownList);
 		}
 		return "characterClass";
 	}

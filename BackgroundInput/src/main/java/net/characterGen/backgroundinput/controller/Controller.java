@@ -1,8 +1,5 @@
 package net.characterGen.backgroundinput.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -37,14 +34,10 @@ public class Controller {
 
 	@PostMapping(value = "/background", params = {"addProficiency"})
 	public String addProficency(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getProficiencies()) {
-				List<String> proficiencyList = new ArrayList<>();
-				proficiencyList.add(new String());
-				background.setProficiencies(proficiencyList);
-			} else {
-				background.getProficiencies().add(new String());
-			}
+		try {
+			background.addProficency(new String());
+		} catch (Exception e) {
+			background.setProficiencies(service.intializeList());
 		}
 		return "background";
 	}
@@ -52,40 +45,34 @@ public class Controller {
 	
 	@PostMapping(value = "/background", params = {"removeProficiency"})
 	public String removeProficiency (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getProficiencies().remove(Integer.parseInt(request.getParameter("removeProficiency")));
+		int parseInt = Integer.parseInt(request.getParameter("removeProficiency"));
+		background.removeProficiency(parseInt);
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"addLanguage"})
 	public String addLanguage(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getLanguages()) {
-				List<String> languageList = new ArrayList<>();
-				languageList.add(new String());
-				background.setLanguages(languageList);
-			} else {
-				background.getLanguages().add(new String());
-			}
+		try {
+			background.addLanguge(new String());
+		} catch (Exception e) {
+			background.setLanguages(service.intializeList());
 		}
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"removeLanguage"})
 	public String removeLanguage (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getLanguages().remove(Integer.parseInt(request.getParameter("removeLanguage")));
+		int parseInt = Integer.parseInt(request.getParameter("removeLanguage"));
+		background.removeLanguage(parseInt);
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"addEquipment"})
 	public String addEquipment(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getEquipment()) {
-				List<String> equipmentList = new ArrayList<>();
-				equipmentList.add(new String());
-				background.setEquipment(equipmentList);
-			} else {
-				background.getEquipment().add(new String());
-			}
+		try {
+			background.addEquipment(new String());
+		} catch (NullPointerException e) {
+			background.setEquipment(service.intializeList());
 		}
 		return "background";
 	}
@@ -93,20 +80,17 @@ public class Controller {
 	
 	@PostMapping(value = "/background", params = {"removeEquipment"})
 	public String removeEquipment (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getEquipment().remove(Integer.parseInt(request.getParameter("removeEquipment")));
+		int parseInt = Integer.parseInt(request.getParameter("removeEquipment"));
+		background.removeEquipment(parseInt);
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"addPersonalityTrait"})
 	public String addPersonalityTrait(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getPersonalityTraits()) {
-				List<String> personalityTraitList = new ArrayList<>();
-				personalityTraitList.add(new String());
-				background.setPersonalityTraits(personalityTraitList);
-			} else {
-				background.getPersonalityTraits().add(new String());
-			}
+		try {
+			background.getPersonalityTraits().add(new String());
+		} catch (NullPointerException e) {
+			background.setPersonalityTraits(service.intializeList());
 		}
 		return "background";
 	}
@@ -114,20 +98,17 @@ public class Controller {
 	
 	@PostMapping(value = "/background", params = {"removePersonalityTrait"})
 	public String removePersonalityTraits (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getPersonalityTraits().remove(Integer.parseInt(request.getParameter("removePersonalityTrait")));
+		int parseInt = Integer.parseInt(request.getParameter("removePersonalityTrait"));
+		background.getPersonalityTraits().remove(parseInt);
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"addIdeal"})
 	public String addIdeal(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getIdeals()) {
-				List<String> idealList = new ArrayList<>();
-				idealList.add(new String());
-				background.setIdeals(idealList);
-			} else {
-				background.getIdeals().add(new String());
-			}
+		try {
+			background.getIdeals().add(new String());
+		} catch (NullPointerException e) {
+			background.setIdeals(service.intializeList());
 		}
 		return "background";
 	}
@@ -135,20 +116,17 @@ public class Controller {
 	
 	@PostMapping(value = "/background", params = {"removeIdeal"})
 	public String removeIdeal (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getIdeals().remove(Integer.parseInt(request.getParameter("removeIdeal")));
+		int parseInt = Integer.parseInt(request.getParameter("removeIdeal"));
+		background.removeIdeal(parseInt);
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"addBond"})
 	public String addBond(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getBonds()) {
-				List<String> bondList = new ArrayList<>();
-				bondList.add(new String());
-				background.setBonds(bondList);
-			} else {
-				background.getBonds().add(new String());
-			}
+		try {
+			background.addBond(new String());
+		} catch (NullPointerException e) {
+			background.setBonds(service.intializeList()); 
 		}
 		return "background";
 	}
@@ -156,20 +134,17 @@ public class Controller {
 	
 	@PostMapping(value = "/background", params = {"removeBond"})
 	public String removeBond (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getBonds().remove(Integer.parseInt(request.getParameter("removeBond")));
+		int parseInt = Integer.parseInt(request.getParameter("removeBond"));
+		background.removeBond(parseInt);
 		return "background";
 	}
 	
 	@PostMapping(value = "/background", params = {"addFlaw"})
 	public String addFlaw(Background background, BindingResult bindingResult) {
-		if(null!=background) {
-			if(null==background.getFlaws()) {
-				List<String> flawList = new ArrayList<>();
-				flawList.add(new String());
-				background.setFlaws(flawList);
-			} else {
-				background.getFlaws().add(new String());
-			}
+		try {
+			background.addFlaw("");
+		} catch (NullPointerException e) {
+			background.setFlaws(service.intializeList());
 		}
 		return "background";
 	}
@@ -177,7 +152,8 @@ public class Controller {
 	
 	@PostMapping(value = "/background", params = {"removeFlaw"})
 	public String removeFlaw (Background background, BindingResult bindingResult, HttpServletRequest request) {
-		background.getFlaws().remove(Integer.parseInt(request.getParameter("removeFlaw")));
+		int parseInt = Integer.parseInt(request.getParameter("removeFlaw"));
+		background.removeFlaw(parseInt);
 		return "background";
 	}
 }

@@ -1,5 +1,8 @@
 package net.characterGen.characterClassInput.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -12,7 +15,9 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.ObjectWriter;
 
+import net.characterGen.characterClassInput.models.Archetype;
 import net.characterGen.characterClassInput.models.CharacterClass;
+import net.characterGen.characterClassInput.models.ClassFeature;
 
 @Service
 public class CharacterClassService {
@@ -44,5 +49,26 @@ public class CharacterClassService {
 		}
 		System.out.println(characterClass.toString());
 	}
+	                         
+	public List<String> intializeStringList() {
+		List<String> list = new ArrayList<>();
+		list.add("");
+		return list;
+	}
 
+
+
+	public List<ClassFeature> intializeClassFeatureList() {
+		List<ClassFeature> list = new ArrayList<>();
+		list.add(new ClassFeature());
+		return list;
+	}
+
+
+
+	public List<Archetype> intializeArchetypeList() {
+		List<Archetype> list = new ArrayList<>();
+		list.add(new Archetype());
+		return list;
+	}
 }

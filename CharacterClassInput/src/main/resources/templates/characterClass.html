@@ -201,7 +201,6 @@
 				                <td><input type="number" class="form-control" th:field="*{archetypes[__${stat1.index}__].features[__${stat2.index}__].level}"></td>
 				                <td><input type="text" class="form-control" th:field="*{archetypes[__${stat1.index}__].features[__${stat2.index}__].description}"></td>
 				                <td><input type="hidden" name="archetypeIndex" value="${stat1.index}"></td>
-				                <td><button class="btn btn-info" type="submit" name="removeArchetypeFeature" id="removeArchetypeFeature" th:value="${stat2.index}">Remove</button></td>
 				            </tr>
 				            </tbody>
 				        </table>

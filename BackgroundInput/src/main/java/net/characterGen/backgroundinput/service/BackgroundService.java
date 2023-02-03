@@ -1,6 +1,9 @@
 package net.characterGen.backgroundinput.service;
 
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -41,6 +44,12 @@ public class BackgroundService {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+	}
+
+	public List<String> intializeList() {
+		List<String> list = new ArrayList<>();
+		list.add("");
+		return list;
 	}
 
 }

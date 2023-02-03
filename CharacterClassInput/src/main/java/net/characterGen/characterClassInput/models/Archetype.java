@@ -8,5 +8,13 @@ import lombok.Data;
 public class Archetype {
 	private String name;
 	private String description;
-	private List<ClassFeature> features;	
+	private List<ClassFeature> features;
+	
+	public void addFeature(ClassFeature classFeature) {
+		this.features.add(classFeature);
+	}
+
+	public void removeFeature(int featureIndex) {
+		this.features.remove(featureIndex);
+	}	
 }
