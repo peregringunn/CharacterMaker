@@ -1,5 +1,8 @@
 package net.characterGen.classSpellListInput.service;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -43,6 +46,14 @@ public class SpellListService {
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
+	}
+
+
+
+	public List<String> initializeStringList() {
+		List<String> list = new ArrayList<>();
+		list.add(new String());
+		return list;
 	}
 
 }

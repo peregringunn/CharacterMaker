@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.repository.config.EnableMongoRepositorie
 import org.springframework.stereotype.Service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import net.characterGen.spellMongo.Models.Spell;
@@ -30,13 +31,16 @@ public class SpellService {
 	public void addSpells (String spells) {
 		final ObjectMapper objectMapper = new ObjectMapper();
 		try {
-			Spell[] spellArr = objectMapper.readValue(spells, Spell[].class);
-			for (int i=0;i<spellArr.length;i++) {
-				repo.save(spellArr[i]);
-			}
+			createSpellList(spells, objectMapper);
 		} catch (JsonProcessingException e) {
 			e.printStackTrace();
 		}
-		
+	}
+
+	private void createSpellList(String spells, final ObjectMapper objectMapper) throws JsonProcessingException, JsonMappingException {
+		Spell[] spellArr = objectMapper.readValue(spells, Spell[].class);
+		for (int i=0;i<spellArr.length;i++) {
+			repo.save(spellArr[i]);
+		}
 	}
 }

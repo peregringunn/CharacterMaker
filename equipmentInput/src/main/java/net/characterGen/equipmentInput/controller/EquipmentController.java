@@ -1,8 +1,5 @@
 package net.characterGen.equipmentInput.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -59,21 +56,18 @@ public class EquipmentController {
 	
 	@PostMapping(value = "/weapon", params = "addProperty")
 	public String addWeapon (Weapon weapon, BindingResult bindingResult) {
-		if (null!=weapon) {
-			if(null==weapon.getProperties()) {
-				List<String> propertyList = new ArrayList<>();
-				propertyList.add(new String());
-				weapon.setProperties(propertyList);
-			} else {
-				weapon.getProperties().add(new String());
-			}
+		try {
+			weapon.addProperty("");
+		} catch (NullPointerException e) {
+			weapon.setProperties(service.intializeList());
 		}
 		return "weapon";
 	}
 	
 	@PostMapping(value = "/weapon", params = "removeProperty")
 	public String removeWeapon (Weapon weapon, BindingResult bindingResult, HttpServletRequest request) {
-		weapon.getProperties().remove(Integer.parseInt(request.getParameter("removeProperty")));
+		int index = Integer.parseInt(request.getParameter("removeProperty"));
+		weapon.removePropertyAt(index);
 		return "weapon";
 	}
 	

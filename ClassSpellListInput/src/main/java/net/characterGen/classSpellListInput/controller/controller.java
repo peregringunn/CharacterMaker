@@ -1,8 +1,5 @@
 package net.characterGen.classSpellListInput.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -38,201 +35,171 @@ public class controller {
 	
 	@PostMapping(value = "/classSpellList", params = {"addCantrip"})
 	public String addCantrip(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getCantrips()) {
-				List<String> cantripList = new ArrayList<>();
-				cantripList.add(new String());
-				classSpellList.setCantrips(cantripList);
-			} else {
-				classSpellList.getCantrips().add(new String());
-			}
+		try {
+			classSpellList.addCantrips(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setCantrips(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeCantrip"})
 	public String removeCantrip(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getCantrips().remove(Integer.parseInt(request.getParameter("removeCantrip")));
+		int index = Integer.parseInt(request.getParameter("removeCantrip"));
+		classSpellList.removeCantripAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addFirst"})
 	public String addFirst(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getFirst()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setFirst(levelList);
-			} else {
-				classSpellList.getFirst().add(new String());
-			}
+		try {
+			classSpellList.addFirstLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setFirst(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeFirst"})
 	public String removeFirst(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getFirst().remove(Integer.parseInt(request.getParameter("removeFirst")));
+		int index = Integer.parseInt(request.getParameter("removeFirst"));
+		classSpellList.removeFirstLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addSecond"})
 	public String addSecond(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getSecond()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setSecond(levelList);
-			} else {
-				classSpellList.getSecond().add(new String());
-			}
+		try {
+			classSpellList.addSecondLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setSecond(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeSecond"})
 	public String removeSecond(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getSecond().remove(Integer.parseInt(request.getParameter("removeSecond")));
+		int index = Integer.parseInt(request.getParameter("removeSecond"));
+		classSpellList.removeSecondLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addThird"})
 	public String addThird(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getThird()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setThird(levelList);
-			} else {
-				classSpellList.getThird().add(new String());
-			}
+		try {
+			classSpellList.addThirdLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setThird(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeThird"})
 	public String removeThird(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getThird().remove(Integer.parseInt(request.getParameter("removeThird")));
+		int index = Integer.parseInt(request.getParameter("removeThird"));
+		classSpellList.removeThirdLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addFourth"})
 	public String addFourth(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getFourth()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setFourth(levelList);
-			} else {
-				classSpellList.getFourth().add(new String());
-			}
+		try {
+			classSpellList.addFourthLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setFourth(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeFourth"})
 	public String removeFourth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getFourth().remove(Integer.parseInt(request.getParameter("removeFourth")));
+		int index = Integer.parseInt(request.getParameter("removeFourth"));
+		classSpellList.removeFourthLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addFith"})
 	public String addFith(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getFith()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setFith(levelList);
-			} else {
-				classSpellList.getFith().add(new String());
-			}
+		try {
+			classSpellList.addFithLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setFith(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeFith"})
 	public String removeFith(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getFith().remove(Integer.parseInt(request.getParameter("removeFith")));
+		int index = Integer.parseInt(request.getParameter("removeFith"));
+		classSpellList.removeFithLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addSixth"})
 	public String addSixth(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getSixth()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setSixth(levelList);
-			} else {
-				classSpellList.getSixth().add(new String());
-			}
+		try {
+			classSpellList.addSixthLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setSixth(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeSixth"})
 	public String removeSixth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getSixth().remove(Integer.parseInt(request.getParameter("removeSixth")));
+		int index = Integer.parseInt(request.getParameter("removeSixth"));
+		classSpellList.removeSixthLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addSeventh"})
 	public String addSeventh(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getSeventh()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setSeventh(levelList);
-			} else {
-				classSpellList.getSeventh().add(new String());
-			}
+		try {
+			classSpellList.addSeventhLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setSeventh(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeSeventh"})
 	public String removeSeventh(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getSeventh().remove(Integer.parseInt(request.getParameter("removeSeventh")));
+		int index = Integer.parseInt(request.getParameter("removeSeventh"));
+		classSpellList.removeSeventhLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addEighth"})
 	public String addEighth(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getEighth()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setEighth(levelList);
-			} else {
-				classSpellList.getEighth().add(new String());
-			}
+		try {
+			classSpellList.addEighthLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setEighth(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeEighth"})
 	public String removeEighth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getEighth().remove(Integer.parseInt(request.getParameter("removeEighth")));
+		int index = Integer.parseInt(request.getParameter("removeEighth"));
+		classSpellList.removeEighthLevelSpellAt(index);
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"addNinth"})
 	public String addNinth(ClassSpellList classSpellList, BindingResult bindingResult) {
-		if (null!=classSpellList) {
-			if (null==classSpellList.getNinth()) {
-				List<String> levelList = new ArrayList<>();
-				levelList.add(new String());
-				classSpellList.setNinth(levelList);
-			} else {
-				classSpellList.getNinth().add(new String());
-			}
+		try {
+			classSpellList.addNinthLevelSpell(new String());
+		} catch (NullPointerException e) {
+			classSpellList.setNinth(service.initializeStringList());
 		}
 		return "classSpellList";
 	}
 	
 	@PostMapping(value = "/classSpellList", params = {"removeNinth"})
 	public String removeNinth(ClassSpellList classSpellList, BindingResult bindingResult, HttpServletRequest request) {
-		classSpellList.getNinth().remove(Integer.parseInt(request.getParameter("removeNinth")));
+		int index = Integer.parseInt(request.getParameter("removeNinth"));
+		classSpellList.removeNinthLevelSpellAt(index);
 		return "classSpellList";
 	}
 }

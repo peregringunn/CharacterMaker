@@ -13,4 +13,12 @@ public class Weapon {
 	private String type;
 	private String damage;
 	private List<String> properties;
+	
+	public void addProperty(String string) {
+		properties.add(string);
+	}
+	
+	public void removePropertyAt(int index) {
+		properties.remove(index);
+	}
 }
